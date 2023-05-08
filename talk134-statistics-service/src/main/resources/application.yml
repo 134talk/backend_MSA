@@ -12,7 +12,7 @@ eureka:
     
 spring:
   application:
-    name: chat-service  
+    name: statistics-service  
     
   kafka:
     bootstrap-servers: ${kafka_broker:43.201.68.179:9092}
