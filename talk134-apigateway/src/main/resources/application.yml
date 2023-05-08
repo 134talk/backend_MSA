@@ -23,6 +23,10 @@ spring:
       - id: talk134-user-service
         uri: lb://USER-SERVICE
         predicates:
+        - Path=/user/login
+      - id: talk134-user-service
+        uri: lb://USER-SERVICE
+        predicates:
         - Path=/user/**
         filters:
         - JwtAuthenticationFilter
