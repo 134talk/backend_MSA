@@ -15,6 +15,6 @@ spring:
     name: chat-service  
     
   kafka:
-    bootstrap-servers: ${KAFKA_CLUSTER01:43.201.21.16:9092},${KAFKA_CLUSTER02:13.125.37.231:9092},${KAFKA_CLUSTER03:15.164.50.105:9092}
+    bootstrap-servers: ${KAFKA_CLUSTER01},${KAFKA_CLUSTER02},${KAFKA_CLUSTER03}
 
 

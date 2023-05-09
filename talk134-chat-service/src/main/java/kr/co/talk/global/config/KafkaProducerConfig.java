@@ -38,7 +38,7 @@ public class KafkaProducerConfig {
 		// 0 : 자신이 보낸 메시지에 대해 카프카로부터 확인을 기다리지 않음
 		// 1 : 자신이 보낸 메시지에 대해 카프카의 leader가 메시지를 받았는지 기다림, follower들은 확인하지 않음
 		// all(-1) : 카프카의 leader와 follwer까지 받았는지 확인. 손실될 확률 거의 없음
-		props.put(ProducerConfig.ACKS_CONFIG, "1"); 
+		props.put(ProducerConfig.ACKS_CONFIG, "all"); 
 		return new DefaultKafkaProducerFactory<>(props);
 	}
 

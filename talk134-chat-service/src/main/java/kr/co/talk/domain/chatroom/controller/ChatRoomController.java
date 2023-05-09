@@ -16,6 +16,7 @@ public class ChatRoomController {
 	@GetMapping("/send")
 	public String send() throws JsonProcessingException {
 		chatRoomSender.sendEndChatting(32L);
-		return "성공";
+//	    chatRoomSender.test_send();
+	    return "성공";
 	}
 }

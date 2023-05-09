@@ -1,8 +1,6 @@
 package kr.co.talk.domain.chatroom.service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -53,6 +51,28 @@ public class ChatRoomSender {
                 // TODO 실패 처리
                 log.info("unable to send message roomId=[{}] due to : {}", roomId, ex.getMessage());
             }
+        });
+    }
+
+    public void test_send() {
+        ListenableFuture<SendResult<String, String>> future =
+                kafkaTemplate.send("test_topic", "test1");
+        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+
+            @Override
+            public void onSuccess(SendResult<String, String> result) {
+                RecordMetadata recordMetadata = result.getRecordMetadata();
+                log.info("recordMetadata :: " + recordMetadata);
+                log.info("partition:::" + recordMetadata.partition());
+                log.info("offset:::" + recordMetadata.offset());
+            }
+
+            @Override
+            public void onFailure(Throwable ex) {
+                // TODO Auto-generated method stub
+
+            }
+
         });
     }
 
