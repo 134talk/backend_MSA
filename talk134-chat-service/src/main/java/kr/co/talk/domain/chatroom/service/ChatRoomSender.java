@@ -57,6 +57,8 @@ public class ChatRoomSender {
     public void test_send() {
         ListenableFuture<SendResult<String, String>> future =
                 kafkaTemplate.send("test_topic", "test1");
+//        ListenableFuture<SendResult<String, String>> future =
+//                kafkaTemplate.send("test_topic", "key1", "test1"); // partition 지정
         future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
 
             @Override
