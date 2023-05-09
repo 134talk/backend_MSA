@@ -34,6 +34,11 @@ public class KafkaProducerConfig {
 		props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		props.put(ProducerConfig.RETRIES_CONFIG, 3); // 전송 실패시 재시도 횟수
+		// ackmode
+		// 0 : 자신이 보낸 메시지에 대해 카프카로부터 확인을 기다리지 않음
+		// 1 : 자신이 보낸 메시지에 대해 카프카의 leader가 메시지를 받았는지 기다림, follower들은 확인하지 않음
+		// all(-1) : 카프카의 leader와 follwer까지 받았는지 확인. 손실될 확률 거의 없음
+		props.put(ProducerConfig.ACKS_CONFIG, "1"); 
 		return new DefaultKafkaProducerFactory<>(props);
 	}
 

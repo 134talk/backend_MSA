@@ -15,5 +15,5 @@ spring:
     name: statistics-service  
     
   kafka:
-    bootstrap-servers: ${kafka_broker:43.201.68.179:9092}
+    bootstrap-servers: ${KAFKA_BROKER}
 
