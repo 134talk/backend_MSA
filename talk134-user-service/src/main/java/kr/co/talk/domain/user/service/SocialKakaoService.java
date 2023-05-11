@@ -46,7 +46,9 @@ public class SocialKakaoService {
 
         //유저 정보 없으면 유저 생성 먼저 진행
         User user = userService.findByUserUid(userInfo.getId());
-
+        if(user == null){
+            user = userService.createUser(userInfo);
+        }
         //jwt 토큰 발급
         //accesstoken userId로 발급
         AuthTokenDto authToken = authService.createAuthToken(user.getUserId());

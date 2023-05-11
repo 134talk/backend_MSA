@@ -40,8 +40,4 @@ public class AuthController {
 //
 //    }
 
-    @GetMapping("/test")
-    public ResponseEntity tokenRefres12h(){
-        return new ResponseEntity(authService.createAuthToken(1l), HttpStatus.OK);
-    }
 }
