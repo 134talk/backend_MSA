@@ -56,6 +56,8 @@ public class GlobalExceptionHandler implements ErrorWebExceptionHandler {
             errorDTO.setCode(ErrorCode.UNKNOWN.name());
             errorDTO.setMessage(ex.getMessage());
         }
+        
+//        return response.setComplete();
 
         // DataBuffer으로 HTTP 요청 및 응답을 처리함
         DataBuffer buffer = null;

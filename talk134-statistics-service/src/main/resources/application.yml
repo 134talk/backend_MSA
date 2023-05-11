@@ -1,0 +1,18 @@
+server:
+  port: 0 # 랜덤하게 지정
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defalutZone: http://localhost:8761/eureka  
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    
+spring:
+  application:
+    name: statistics-service  
+    
+  kafka:
+    bootstrap-servers: ${KAFKA_CLUSTER01},${KAFKA_CLUSTER02},${KAFKA_CLUSTER03}
