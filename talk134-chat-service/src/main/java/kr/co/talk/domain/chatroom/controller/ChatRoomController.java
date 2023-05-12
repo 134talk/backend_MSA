@@ -1,6 +1,8 @@
 package kr.co.talk.domain.chatroom.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import kr.co.talk.domain.chatroom.service.ChatRoomSender;
@@ -11,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
+@RequestMapping("/chat")
 public class ChatRoomController {
     private final ChatRoomSender chatRoomSender;
     private final UserClient userClient;
@@ -26,5 +29,11 @@ public class ChatRoomController {
     @GetMapping("/user-call")
     public String getUser() {
         return userClient.getUser();
+    }
+
+    @GetMapping("/test")
+    public String test(@RequestHeader(value = "userId") String userId) {
+        log.info("userId::"+userId);
+        return "test";
     }
 }

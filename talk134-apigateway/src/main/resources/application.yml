@@ -30,6 +30,12 @@ spring:
         - Path=/user/**
         filters:
         - JwtAuthenticationFilter
+      - id: talk134-chat-service
+        uri: lb://CHAT-SERVICE
+        predicates:
+        - Path=/chat/**
+        filters:
+        - JwtAuthenticationFilter
       
         
 logging:
