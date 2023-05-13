@@ -35,7 +35,26 @@ public class StatisticsConsumer {
 
         try {
             // TODO MongoDB 저장
+//		// RedisTemplate과 MongoTemplate 생성
+//		RedisTemplate<String, ChatDto> redisTemplate = redisConfig.chatDtoRedisTemplate(redisConnectionFactory);
+//		MongoTemplate mongoTemplate = new MongoTemplate(mongoClient, "chat_db");
+//
+//		// Chat room ID를 지정하여 Redis에서 채팅 내역 조회
+//		List<ChatDto> chatDtoList = redisTemplate.opsForList().range("chat_room_" + roomId, 0, -1);
+//
+//		// MongoDB에 채팅 내역 저장
+//		mongoTemplate.insertAll(chatDtoList.stream()
+//				.map(chatDto -> {
+//					return new ChatDocument(
+//
+//							chatDto.getChatRoomId(),
+//
+//					);
+//				})
+//				.collect(Collectors.toList()), "chat_room_" + roomId);
 
+//		// Redis에서 채팅 내역 삭제
+//		redisTemplate.delete("chat_room_" + roomId);
             // kafka commit
             ack.acknowledge();
         } catch (Exception e) {

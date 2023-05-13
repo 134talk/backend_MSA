@@ -1,10 +1,9 @@
-package kr.co.talk.global.config;
+package kr.co.talk.global.config.kafka;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,7 +32,6 @@ public class KafkaProducerConfig {
 		// Kafka 브로커로 메시지를 보낼때 직렬화/역직렬화 방식
 		props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ChatEndChatroomDtoDeserializer.class);
 		props.put(ProducerConfig.RETRIES_CONFIG, 3); // 전송 실패시 재시도 횟수
 		// ackmode
 		// 0 : 자신이 보낸 메시지에 대해 카프카로부터 확인을 기다리지 않음

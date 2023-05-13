@@ -25,7 +25,7 @@ spring:
       password: 134talk
   kafka:
     consumer:
-      group-id: testTopic
+      group-id: ${KafkaConstants.CHAT_TOPIC}
       enable-auto-commit: true
       auto-offset-reset: latest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer

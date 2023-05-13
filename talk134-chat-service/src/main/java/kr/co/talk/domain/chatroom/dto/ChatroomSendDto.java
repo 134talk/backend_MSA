@@ -6,8 +6,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-public class ChatEndChatroomDto {
+public class ChatroomSendDto {
     private Long roomId;
-    private String lastChatSenderName;
-    private String lastChatMessage;
+    private Long userId;
 }
