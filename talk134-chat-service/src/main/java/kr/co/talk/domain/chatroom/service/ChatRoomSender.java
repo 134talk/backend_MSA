@@ -1,6 +1,11 @@
 package kr.co.talk.domain.chatroom.service;
 
 import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import kr.co.talk.domain.chatroom.dto.ChatDto;
+import kr.co.talk.domain.chatroom.dto.ChatEndChatroomDto;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -25,6 +30,7 @@ public class ChatRoomSender {
     private final KafkaTemplate<String, String> kafkaTemplate;
     private final ObjectMapper objectMapper;
 
+    private final ChatRoomService chatRoomService;
     public void sendEndChatting(long roomId) throws JsonProcessingException {
         KafkaEndChatroomDTO chatroomDTO = KafkaEndChatroomDTO.builder()
                 .roomId(roomId)
@@ -78,6 +84,41 @@ public class ChatRoomSender {
         });
     }
 
+    // Kafka Producer
+    public void sendMessageToKafka(long roomId) throws JsonProcessingException {
+        ChatDto lastChat = chatRoomService.getLastChatMessage(roomId);
+        ChatEndChatroomDto chatEndChatroomDTO = ChatEndChatroomDto.builder()
+                .roomId(roomId)
+                .lastChatSenderName(lastChat.getName())
+                .lastChatMessage(lastChat.getMessage())
+                .build();
+        ObjectMapper objectMapper = new ObjectMapper()
+                .setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+
+        String jsonInString = objectMapper.writeValueAsString(chatEndChatroomDTO);
+
+        ListenableFuture<SendResult<String, String>> future =
+                kafkaTemplate.send(KafkaConstants.CHAT_TOPIC, jsonInString);
+
+        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+
+            @Override
+            public void onSuccess(SendResult<String, String> result) {
+                RecordMetadata recordMetadata = result.getRecordMetadata();
+                log.info("sent topic=[{}] roodId [{}] with offset=[{}]", recordMetadata.topic(),
+                        roomId,
+                        recordMetadata.offset());
+            }
+
+            @Override
+            public void onFailure(Throwable ex) {
+                // TODO 실패 처리
+                log.info("unable to send message roomId=[{}] due to : {}", roomId, ex.getMessage());
+            }
+        });
+    }
+
+
     @Builder
     @Data
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -87,5 +128,4 @@ public class ChatRoomSender {
         private LocalDateTime localDateTime;
         // TODO 메시지 보낼게 더 있을지...
     }
-
 }

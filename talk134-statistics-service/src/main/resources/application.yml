@@ -13,6 +13,21 @@ eureka:
 spring:
   application:
     name: statistics-service  
-    
+
   kafka:
-    bootstrap-servers: ${KAFKA_CLUSTER01},${KAFKA_CLUSTER02},${KAFKA_CLUSTER03}
+    consumer:
+      group-id: testTopic
+      enable-auto-commit: true
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      max-poll-records: 1000
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    template:
+      default-topic: defaultTopic
+    bootstrap-servers: localhost:9093
+    zipkin:
+      sender:
+        type: kafka

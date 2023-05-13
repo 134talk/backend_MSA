@@ -12,9 +12,31 @@ eureka:
     
 spring:
   application:
-    name: chat-service  
-    
+    name: chat-service
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+    mongodb:
+      host: 172.31.44.36
+      port: 27017
+      database: admin
+      username: 134talk
+      password: 134talk
   kafka:
-    bootstrap-servers: ${KAFKA_CLUSTER01},${KAFKA_CLUSTER02},${KAFKA_CLUSTER03}
-
-
+    consumer:
+      group-id: testTopic
+      enable-auto-commit: true
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      max-poll-records: 1000
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    template:
+      default-topic: defaultTopic
+    bootstrap-servers: localhost:9092
+    zipkin:
+      sender:
+        type: kafka
