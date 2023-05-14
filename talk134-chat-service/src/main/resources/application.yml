@@ -12,9 +12,10 @@ eureka:
     
 spring:
   application:
-    name: chat-service  
-    
+    name: chat-service
+  data:
+    redis:
+      host: ${REDIS.HOST}
+      port: ${REDIS.PORT}
   kafka:
     bootstrap-servers: ${KAFKA_CLUSTER01},${KAFKA_CLUSTER02},${KAFKA_CLUSTER03}
-
-

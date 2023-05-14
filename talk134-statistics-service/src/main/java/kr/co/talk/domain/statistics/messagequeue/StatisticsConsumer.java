@@ -1,6 +1,7 @@
 package kr.co.talk.domain.statistics.messagequeue;
 
 import java.time.LocalDateTime;
+
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
@@ -22,6 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 public class StatisticsConsumer {
 
     private final ObjectMapper objectMapper;
+    private final StatisticsRepository statisticsRepository;
 
     @KafkaListener(topics = KafkaConstants.TOPIC_END_CHATTING,
             groupId = KafkaConstants.GROUP_STATISTICS,
@@ -34,7 +36,14 @@ public class StatisticsConsumer {
                 objectMapper.readValue(kafkaMessage, KafkaEndChatroomDTO.class);
 
         try {
-            // TODO MongoDB 저장
+            // MongoDB에 저장할 StatisticsDocument 객체 생성
+            StatisticsDocument statisticsDocument = new StatisticsDocument();
+            statisticsDocument.setRoomId(endChatroomDTO.getRoomId());
+            statisticsDocument.setName("test");
+            statisticsDocument.setEndDateTime(endChatroomDTO.getLocalDateTime());
+
+            // MongoDB에 저장
+            statisticsRepository.save(statisticsDocument);
 
             // kafka commit
             ack.acknowledge();
