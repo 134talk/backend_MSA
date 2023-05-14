@@ -3,40 +3,38 @@ package kr.co.talk.domain.chatroom.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.co.talk.domain.chatroom.dto.ChatDto;
-import kr.co.talk.global.config.redis.RedisConfig;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.redis.core.HashOperations;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static kr.co.talk.domain.chatroom.constants.RedisConstants.*;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class ChatRedisService {
-
-    private final RedisConfig redisConfig;
-    private final RedisTemplate<String, ChatDto> redisTemplate;
-    private HashOperations<String, String, String> hashOpsEnterInfo;
+    @Autowired
+    private RedisTemplate<String, ChatDto> redisTemplate;
+    @Autowired
+    private RedisTemplate<String, String> redisStringTemplate;
+    private ValueOperations<String, String> valueOps;
     private ListOperations<String, ChatDto> listOpsChatDto;
     private ObjectMapper objectMapper;
 
-    public ChatRedisService(RedisConfig redisConfig, RedisTemplate<String, ChatDto> redisTemplate) {
-        this.redisConfig = redisConfig;
-        this.redisTemplate = redisTemplate;
-        this.objectMapper = new ObjectMapper();
-    }
-
     @PostConstruct
     private void init() {
-        hashOpsEnterInfo = redisTemplate.opsForHash();
+        valueOps = redisStringTemplate.opsForValue();
         listOpsChatDto = redisTemplate.opsForList();
     }
 
@@ -65,14 +63,14 @@ public class ChatRedisService {
                 .collect(Collectors.toList());
     }
 
-    //사용자 세션으로 입장해있는 roomId 조회
-    public String getUserEnterRoomId(String sessionId) {
-        return hashOpsEnterInfo.get(ENTER_INFO, sessionId);
+    //userCount + 1
+    public Long plusUserCount(Long roomId) {
+        return Long.valueOf(Optional.ofNullable(valueOps.increment(USER_COUNT + roomId)).orElse(0L));
     }
 
-    //사용자 세션정보와 맵핑된 roomId 삭제
-    public void removeUserEnterInfo(String sessionId) {
-        hashOpsEnterInfo.delete(ENTER_INFO, sessionId);
+    //userCount - 1
+    public Long minusUserCount(Long roomId) {
+        return Long.valueOf(Optional.ofNullable(valueOps.decrement(USER_COUNT + roomId)).filter(count -> count > 0).orElse(0L));
     }
 
 }

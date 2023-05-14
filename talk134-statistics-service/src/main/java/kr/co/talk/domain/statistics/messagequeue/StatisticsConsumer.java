@@ -1,6 +1,7 @@
 package kr.co.talk.domain.statistics.messagequeue;
 
 import java.time.LocalDateTime;
+
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
@@ -22,6 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 public class StatisticsConsumer {
 
     private final ObjectMapper objectMapper;
+    private final StatisticsRepository statisticsRepository;
 
     @KafkaListener(topics = KafkaConstants.TOPIC_END_CHATTING,
             groupId = KafkaConstants.GROUP_STATISTICS,
@@ -34,27 +36,15 @@ public class StatisticsConsumer {
                 objectMapper.readValue(kafkaMessage, KafkaEndChatroomDTO.class);
 
         try {
-            // TODO MongoDB 저장
-//		// RedisTemplate과 MongoTemplate 생성
-//		RedisTemplate<String, ChatDto> redisTemplate = redisConfig.chatDtoRedisTemplate(redisConnectionFactory);
-//		MongoTemplate mongoTemplate = new MongoTemplate(mongoClient, "chat_db");
-//
-//		// Chat room ID를 지정하여 Redis에서 채팅 내역 조회
-//		List<ChatDto> chatDtoList = redisTemplate.opsForList().range("chat_room_" + roomId, 0, -1);
-//
-//		// MongoDB에 채팅 내역 저장
-//		mongoTemplate.insertAll(chatDtoList.stream()
-//				.map(chatDto -> {
-//					return new ChatDocument(
-//
-//							chatDto.getChatRoomId(),
-//
-//					);
-//				})
-//				.collect(Collectors.toList()), "chat_room_" + roomId);
+            // MongoDB에 저장할 StatisticsDocument 객체 생성
+            StatisticsDocument statisticsDocument = new StatisticsDocument();
+            statisticsDocument.setRoomId(endChatroomDTO.getRoomId());
+            statisticsDocument.setName("test");
+            statisticsDocument.setEndDateTime(endChatroomDTO.getLocalDateTime());
 
-//		// Redis에서 채팅 내역 삭제
-//		redisTemplate.delete("chat_room_" + roomId);
+            // MongoDB에 저장
+            statisticsRepository.save(statisticsDocument);
+
             // kafka commit
             ack.acknowledge();
         } catch (Exception e) {

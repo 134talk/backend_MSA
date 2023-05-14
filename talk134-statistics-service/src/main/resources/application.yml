@@ -12,7 +12,15 @@ eureka:
     
 spring:
   application:
-    name: statistics-service  
+    name: statistics-service
+  data:
+    mongodb:
+      host: ${mongoDB.host}
+      port: ${mongoDB.port}
+      authentication-database: admin
+      database: database
+      username: ${mongoDB.username}
+      password: ${mongoDB.password}
 
   kafka:
     consumer:

@@ -15,14 +15,8 @@ spring:
     name: chat-service
   data:
     redis:
-      host: 127.0.0.1
-      port: 6379
-    mongodb:
-      host: 172.31.44.36
-      port: 27017
-      database: admin
-      username: 134talk
-      password: 134talk
+      host: ${REDIS.HOST}
+      port: ${REDIS.PORT}
   kafka:
     consumer:
       group-id: ${KafkaConstants.CHAT_TOPIC}
