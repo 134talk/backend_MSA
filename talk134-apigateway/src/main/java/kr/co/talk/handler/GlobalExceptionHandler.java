@@ -1,6 +1,6 @@
 package kr.co.talk.handler;
 
-import java.security.SignatureException;
+import io.jsonwebtoken.security.SignatureException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.reactive.error.ErrorWebExceptionHandler;
@@ -53,6 +53,7 @@ public class GlobalExceptionHandler implements ErrorWebExceptionHandler {
             errorDTO.setCode(ErrorCode.INVALID.name());
             errorDTO.setMessage(ErrorCode.INVALID.getMessage());
         } else {
+            response.setStatusCode(HttpStatus.BAD_REQUEST);
             errorDTO.setCode(ErrorCode.UNKNOWN.name());
             errorDTO.setMessage(ex.getMessage());
         }

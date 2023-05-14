@@ -3,7 +3,6 @@ package kr.co.talk.global.config.kafka;
 import java.util.HashMap;
 import java.util.Map;
 
-import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,7 +18,6 @@ import org.springframework.kafka.core.*;
  */
 @EnableKafka
 @Configuration
-@RequiredArgsConstructor
 public class KafkaProducerConfig {
 
 	@Value(value = "${spring.kafka.bootstrap-servers}")
