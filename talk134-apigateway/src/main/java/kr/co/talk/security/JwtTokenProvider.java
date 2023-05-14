@@ -60,29 +60,24 @@ public class JwtTokenProvider {
 
     // accessToken 유효성 체크
     public void validAccessToken(String token) {
-        try {
-            parseClaims(token, accessTokenKey);
-        } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException
-                | SignatureException | IllegalArgumentException jwtException) {
-            throw jwtException;
-        }
+        parseClaims(token, accessTokenKey);
     }
 
     // refreshToken 유효성 체크
     public void validRefreshToken(String refreshToken) {
+        parseClaims(refreshToken, refreshTokenKey);
+    }
+
+    private Claims parseClaims(String token, Key secretKey) {
         try {
-            parseClaims(refreshToken, refreshTokenKey);
+            return Jwts.parserBuilder()
+                    .setSigningKey(secretKey)
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
         } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException
                 | SignatureException | IllegalArgumentException jwtException) {
             throw jwtException;
         }
-    }
-
-    private Claims parseClaims(String token, Key secretKey) {
-        return Jwts.parserBuilder()
-                .setSigningKey(secretKey)
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
     }
 }

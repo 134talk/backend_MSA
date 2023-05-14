@@ -19,6 +19,7 @@ public class JwtAuthenticationFilter
         extends AbstractGatewayFilterFactory<JwtAuthenticationFilter.Config> {
 
     private final JwtTokenProvider jwtTokenProvider;
+    private static final String USER_ID = "userId";
 
     @Autowired
     public JwtAuthenticationFilter(JwtTokenProvider jwtTokenProvider) {
@@ -45,9 +46,12 @@ public class JwtAuthenticationFilter
 
             String token = authorizationHeader.split("Bearer ")[1].trim();
 
-            // 토근 유효성 통과 안됐을시 예외 발생
-            jwtTokenProvider.validAccessToken(token);
+            // 토근 유효성 통과 안됐을시 예외 발생, userId 가져옴
+            String subject = jwtTokenProvider.getAccessTokenSubject(token);
+            log.info("subject:: {} ", subject);
 
+            // header에 userId 추가
+            exchange.getRequest().mutate().header(USER_ID, subject); 
             return chain.filter(exchange);
         };
     }
