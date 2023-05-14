@@ -5,6 +5,7 @@ import kr.co.talk.domain.chatroom.dto.ChatroomSendDto;
 import kr.co.talk.global.client.UserClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import kr.co.talk.domain.chatroom.service.ChatRoomSender;
@@ -16,6 +17,7 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
+@RequestMapping("/chat")
 public class ChatroomController {
 
     private final ChatRoomSender chatRoomSender;
@@ -38,9 +40,10 @@ public class ChatroomController {
         log.info("userId::"+userId);
         return "test";
     }
-    
+
     @GetMapping("/sendMessage")
     public List<ChatDto> sendMessage() throws JsonProcessingException {
         return chatRoomSender.sendMessageToKafka(ChatroomSendDto.builder().roomId(32L).userId(1L).build());
     }
 }
+
