@@ -13,7 +13,7 @@ spring:
         enabled: true
 
   kafka:
-    bootstrap-servers: 192.168.56.101:9092
+    bootstrap-servers: ${KAFKA_CLUSTER01},${KAFKA_CLUSTER02},${KAFKA_CLUSTER03}
 
 
 management:
