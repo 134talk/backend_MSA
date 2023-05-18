@@ -31,6 +31,9 @@ dependencies {
 	//git event monitor
 	implementation 'org.springframework.cloud:spring-cloud-config-monitor'
 	implementation "org.springframework.cloud:spring-cloud-starter-bus-kafka"
+	
+	// eureka
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
 	//jasypt
 	implementation 'com.github.ulisesbocchio:jasypt-spring-boot:3.0.4'

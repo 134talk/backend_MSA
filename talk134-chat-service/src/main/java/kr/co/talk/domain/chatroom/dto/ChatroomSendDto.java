@@ -4,8 +4,8 @@ import lombok.*;
 
 @Builder
 @Data
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
+@AllArgsConstructor
 public class ChatroomSendDto {
     private Long roomId;
     private Long userId;

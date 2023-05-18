@@ -1,9 +1,12 @@
 package kr.co.talk.domain.chatroom.controller;
 
 import kr.co.talk.domain.chatroom.dto.ChatDto;
+import kr.co.talk.domain.chatroom.dto.ChatroomListDto;
 import kr.co.talk.domain.chatroom.dto.ChatroomSendDto;
 import kr.co.talk.global.client.UserClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @Slf4j
@@ -26,7 +30,7 @@ public class ChatroomController {
     @GetMapping("/send")
     public String send() throws JsonProcessingException {
         chatRoomSender.sendEndChatting(32L);
-//	    chatRoomSender.test_send();
+        // chatRoomSender.test_send();
         return "성공";
     }
 
@@ -37,13 +41,34 @@ public class ChatroomController {
 
     @GetMapping("/test")
     public String test(@RequestHeader(value = "userId") String userId) {
-        log.info("userId::"+userId);
+        log.info("userId::" + userId);
         return "test";
     }
 
     @GetMapping("/sendMessage")
     public List<ChatDto> sendMessage() throws JsonProcessingException {
-        return chatRoomSender.sendMessageToKafka(ChatroomSendDto.builder().roomId(32L).userId(1L).build());
+        return chatRoomSender
+                .sendMessageToKafka(ChatroomSendDto.builder().roomId(32L).userId(1L).build());
     }
+
+    /**
+     * 대화방 목록 조회
+     * 
+     * @param userId
+     * @param teamCode
+     * @return
+     */
+    @GetMapping("/find-chatrooms")
+    public List<ChatroomListDto> findChatRooms(@RequestHeader(value = "userId") String userId,
+            String teamCode) {
+        return null;
+    }
+
+    @PostMapping("/create-chatroom")
+    public ResponseEntity<?> createChatroom(String teamCode, Set<Long> userList) {
+        return ResponseEntity.ok().build();
+    }
+
+
 }
 
