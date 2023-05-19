@@ -5,7 +5,7 @@ spring:
   application:
     name: config-service
   kafka:
-    bootstrap-servers: 192.168.56.101:9092
+    bootstrap-servers: ${KAFKA_CLUSTER01:43.201.135.148:9092},${KAFKA_CLUSTER02:43.200.40.62:9092},${KAFKA_CLUSTER03:43.201.243.40:9092}
 
   cloud:
     bus:
@@ -20,15 +20,6 @@ spring:
           ignore-local-ssh-settings: true
         encrypt:
           enabled: false
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defalutZone: http://localhost:8761/eureka
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-
 
 jasypt:
   encryptor:
