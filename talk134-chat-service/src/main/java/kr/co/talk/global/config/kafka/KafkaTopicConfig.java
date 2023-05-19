@@ -1,4 +1,4 @@
-package kr.co.talk.global.config;
+package kr.co.talk.global.config.kafka;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -13,6 +13,20 @@ spring:
     name: apigateway
   cloud:
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*" # TODO Front Server 변경
+            # axios를 통해 쿠키를 보낼때 옵션에 withCredentials를 true로 주었다면 여기도 true로 설정해야함
+            # allow-credentials이 true일 경우, allowedOrigins는 "*" 사용 불가, 명시적 url설정해야함
+#            allow-credentials: true 
+            allowedHeaders: "*"
+            allowedMethods:
+              - POST
+              - GET
+              - PUT
+              - DELETE
+              - OPTIONS # preflight 
       default-filters:
       - name: GlobalFilter
         args:
@@ -28,6 +42,12 @@ spring:
         uri: lb://USER-SERVICE
         predicates:
         - Path=/user/**
+        filters:
+        - JwtAuthenticationFilter
+      - id: talk134-chat-service
+        uri: lb://CHAT-SERVICE
+        predicates:
+        - Path=/chat/**
         filters:
         - JwtAuthenticationFilter
       
