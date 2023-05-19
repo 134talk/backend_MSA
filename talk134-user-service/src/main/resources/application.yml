@@ -2,7 +2,7 @@ spring:
   config:
     import: optional:configserver:http://localhost:8081
   application:
-    name: user-service
+    name: user-service, common-config
   profiles:
     active: default
 
@@ -12,14 +12,7 @@ spring:
       refresh:
         enabled: true
 
-  kafka:
-    bootstrap-servers: ${KAFKA_CLUSTER01},${KAFKA_CLUSTER02},${KAFKA_CLUSTER03}
-
-
 management:
-  endpoint:
-    refresh:
-      enabled: true
   endpoints:
     web:
       exposure:
