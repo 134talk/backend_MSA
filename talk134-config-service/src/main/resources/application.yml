@@ -1,0 +1,31 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: config-service
+  kafka:
+    bootstrap-servers: ${KAFKA_CLUSTER01:43.201.135.148:9092},${KAFKA_CLUSTER02:43.200.40.62:9092},${KAFKA_CLUSTER03:43.201.243.40:9092}
+
+  cloud:
+    bus:
+      enabled: true
+
+    config:
+      server:
+        git:
+          uri: git@github.com:134talk/backend_config.git
+          default-label: main
+          private-key: ENC(3gBmM+SXFge5l8eHhLAJgDa/ehEi+6FV/67KNQkaV9tGS4GPWcNgI7u7a83efZZcU3F20KzbrQQhGtpcaBDDfMOQzV/F/q1aSMsLG1RK8WCd8CyjmyotnMzz7jlXBMf7y7dvYvjJXlGZpuppd44amrWVHMeP5MjzLPoAZBSbb0bk9EAXM4qSefBFI7w+RDvplbKeOLcGvOgtBr4r0vkk54+VxgL5E+YhWErjcBWLDg/hz6G+hkf6rGco9Lzydu+pm7eP9DoORp/LUFeFKccraPOlgrGBjz7lgvf4LD781LLFymxemIJrE0GNWnT9wKAquFHKRu5gA3Hu4h4zzoWJmGkF1NxgY0hKXBj79EZuPT8XqstT0uROsoxsoEqPNetw6c/rtuRWtSPrN64GQ6ai2wWjfWJqA/pGBbuJBZwItSEgfpa4nHD6VUAqQIva7qjAh/sFTupb1EB7bDNk/35iJGKa63y3C/4UBJvrxyDBgSyC9Y53CFpcMwGtjDdbeUYF/cPYXLVMwFDIu24DZ6dt3jEFv4gPNSRK03r6QGBb0ci/2oyEPTCDSDsOJNKmkTAIcbWWc6Doxrjdp/JjUFRdGWgcV4yNo1A3sjQlOg1xtZP5upSKRbaxQeQUErTQpQCE0uGjrLWmSsALde/mUGPyeOYUCKp5hDtHGhB002iMGeaTqlIyLAc6UKNl8ly+jcwT+rv8kKUNxpiADXgUANc5mc+fwGhAXI8HBVkc8xzCjgbH8C7wpr3rTF2nHgvmqv7RO9pqO5svrKKnS2S+aVlcnukGa/lXWBBFuc80vTYiuQLfDw0ymF4WVCQBUhBQtcAoMi/JFC/1TC19GJmszWzbk/IrUWBKHHrSyaxA9AZs03XVdXgCVic2mH59rMRbSi0YiGr5RmPlRcehOM0Lee4goJpgi9F3O4Xg+QmQJ487rU149YovjJ9aL6xGlFfc802SnG3NcHOYR3WawGmg+2UjKdZTevVVO2qWjrWd6pOh9lRdgS9Jb0LR7QkUZIrHXbfYP8c8dbaPoVJZuNNrWfhSVx+aSvvVpDwlslTeX+Q1alF73+qniFI67EUX008Ggs3THejictWXykrxAlgyruyHJqWCN2TNV0P8YKwRiOdCAd5HD6RYTr83Na8Om1fyDJEJTKQbTLiuydM/9G2GMKe4hAjcenihMIdFBaxjI1pChk+ivwos9W6SjoODeW3fyNWWU9bxVOXgdKI5azrSHEyivr9YW0p3yp6E7Uw5+Hvur9U/gsgO9bD8MdfC0MzBAOn6dp6GkQWD6ALIrtUkiX6nbf3bmrDILditPre7VredoPghYwJte+QUPICS4zhl1heTfIKVqXVX9mADwULjkvQbA5o3Od02wwUBqRBcthximIYN2zElsvbzmg==)
+          ignore-local-ssh-settings: true
+        encrypt:
+          enabled: false
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+
+
+
+
+
