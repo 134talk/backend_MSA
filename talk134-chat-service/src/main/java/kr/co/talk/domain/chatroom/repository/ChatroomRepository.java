@@ -6,5 +6,5 @@ import kr.co.talk.domain.chatroom.model.Chatroom;
 
 public interface ChatroomRepository
         extends JpaRepository<Chatroom, Long>, ChatroomCustomRepository {
-    public List<Chatroom> findByTeamCode(String teamCode);
+//    public List<Chatroom> findByTeamCode(String teamCode);
 }

@@ -15,6 +15,6 @@ public class JwtTokenController {
     
     @GetMapping("/getToken")
     public String getToken() {
-        return jwtTokenProvider.createAccessToken("test");
+        return jwtTokenProvider.createAccessToken("123123");
     }
 }

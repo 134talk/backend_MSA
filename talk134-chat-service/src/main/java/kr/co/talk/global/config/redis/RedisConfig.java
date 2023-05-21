@@ -1,6 +1,8 @@
 package kr.co.talk.global.config.redis;
 
 import kr.co.talk.domain.chatroom.dto.ChatDto;
+import kr.co.talk.domain.chatroom.dto.RoomEmoticon;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,53 +18,52 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 public class RedisConfig {
 
-    @Value("${spring.redis.host}")
-    public String host;
+	@Value("${spring.redis.host}")
+	public String host;
 
-    @Value("${spring.redis.port}")
-    public int port;
+	@Value("${spring.redis.port}")
+	public int port;
 
-    @Value("${spring.redis.password}")
-    public String password;
+	@Value("${spring.redis.password}")
+	public String password;
 
-    @Bean
-    public RedisConnectionFactory redisConnectionFactory() {
-        RedisStandaloneConfiguration redisConfiguration = new RedisStandaloneConfiguration();
-        redisConfiguration.setHostName(host);
-        redisConfiguration.setPort(port);
-        redisConfiguration.setPassword(password);
+	@Bean
+	public RedisConnectionFactory redisConnectionFactory() {
+		RedisStandaloneConfiguration redisConfiguration = new RedisStandaloneConfiguration();
+		redisConfiguration.setHostName(host);
+		redisConfiguration.setPort(port);
+		redisConfiguration.setPassword(password);
 
-        return new LettuceConnectionFactory(redisConfiguration);
-    }
+		return new LettuceConnectionFactory(redisConfiguration);
+	}
 
-    @Bean
-    public RedisTemplate<String, Object> redisTemplate() {
-        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
-        redisTemplate.setConnectionFactory(redisConnectionFactory());
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
-        redisTemplate.setValueSerializer(new StringRedisSerializer());
+	@Bean
+	public RedisTemplate<String, Object> redisTemplate() {
+		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+		redisTemplate.setConnectionFactory(redisConnectionFactory());
+		redisTemplate.setKeySerializer(new StringRedisSerializer());
+		redisTemplate.setValueSerializer(new StringRedisSerializer());
 
-        return redisTemplate;
-    }
+		return redisTemplate;
+	}
 
-    @Bean
-    public StringRedisTemplate stringRedisTemplate() {
-        StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();
-        stringRedisTemplate.setConnectionFactory(redisConnectionFactory());
-        stringRedisTemplate.setKeySerializer(new StringRedisSerializer());
-        stringRedisTemplate.setValueSerializer(new StringRedisSerializer());
+	@Bean
+	public StringRedisTemplate stringRedisTemplate() {
+		StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();
+		stringRedisTemplate.setConnectionFactory(redisConnectionFactory());
+		stringRedisTemplate.setKeySerializer(new StringRedisSerializer());
+		stringRedisTemplate.setValueSerializer(new StringRedisSerializer());
 
-        return stringRedisTemplate;
-    }
+		return stringRedisTemplate;
+	}
 
-    @Bean
-    public RedisTemplate<String, ChatDto> chatDtoRedisTemplate(
-            RedisConnectionFactory redisConnectionFactory) {
-        RedisTemplate<String, ChatDto> redisTemplate = new RedisTemplate<>();
-        redisTemplate.setConnectionFactory(redisConnectionFactory);
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
-        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(ChatDto.class));
-        return redisTemplate;
-    }
-
+	@Bean
+	public RedisTemplate<String, ChatDto> chatDtoRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+		RedisTemplate<String, ChatDto> redisTemplate = new RedisTemplate<>();
+		redisTemplate.setConnectionFactory(redisConnectionFactory);
+		redisTemplate.setKeySerializer(new StringRedisSerializer());
+		redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(ChatDto.class));
+		return redisTemplate;
+	}
+	
 }

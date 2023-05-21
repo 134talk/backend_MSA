@@ -60,9 +60,9 @@ dependencies {
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
 	
 	// spring cloud config
-//	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-//	implementation "org.springframework.cloud:spring-cloud-starter-bus-kafka"
-//	implementation 'org.springframework.cloud:spring-cloud-config-client'	
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation "org.springframework.cloud:spring-cloud-starter-bus-kafka"
+	implementation 'org.springframework.cloud:spring-cloud-config-client'	
 }
 
 dependencyManagement {

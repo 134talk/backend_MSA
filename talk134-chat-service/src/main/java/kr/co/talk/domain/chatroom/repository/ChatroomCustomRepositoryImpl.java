@@ -19,19 +19,15 @@ public class ChatroomCustomRepositoryImpl implements ChatroomCustomRepository {
                 .fetchJoin()
                 .where(chatroom.teamCode.eq(teamCode))
                 .fetch();
-
-        // List<ChatroomListDto> collect = jpaQueryFactory
-        // .selectFrom(chatroom)
-        // .innerJoin(chatroom.chatroomUsers, chatroomUsers)
-        // .transform(groupBy(chatroom)
-        // .as(new QChatroomListDto(chatroom.chatroomId, list(chatroomUsers))))
-        // .values().stream().map(dto -> {
-        // List<ChatroomUsers> chatroomUsers = dto.getChatroomUsers();
-        // List<Long> userIds = chatroomUsers.stream().map(ChatroomUsers::getUserId)
-        // .collect(Collectors.toList());
-        // dto.setUserCount(chatroomUsers.size());
-        // dto.setJoinFlag(userIds.contains(userId));
-        // return dto;
-        // }).collect(Collectors.toList());
     }
+
+	@Override
+	public List<Chatroom> findByTeamCodeAndName(String teamCode, List<Long> userIds) {
+		return jpaQueryFactory.selectFrom(chatroom)
+				.leftJoin(chatroom.chatroomUsers, chatroomUsers)
+				.fetchJoin()
+				.where(chatroom.teamCode.eq(teamCode), 
+						chatroomUsers.userId.in(userIds))
+				.fetch();
+	}
 }
