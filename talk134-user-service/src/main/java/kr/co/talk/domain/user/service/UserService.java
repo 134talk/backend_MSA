@@ -2,6 +2,7 @@ package kr.co.talk.domain.user.service;
 
 import kr.co.talk.domain.user.dto.RegisterAdminUserDto;
 import kr.co.talk.domain.user.dto.RegisterUserDto;
+import kr.co.talk.domain.user.dto.ResponseDto;
 import kr.co.talk.domain.user.dto.SocialKakaoDto;
 import kr.co.talk.domain.user.model.Team;
 import kr.co.talk.domain.user.model.User;
@@ -65,16 +66,18 @@ public class UserService {
         return userId;
     }
 
-    public String nameFromUser(String accessToken) {
+    public ResponseDto.NameResponseDto nameFromUser(String accessToken) {
         User user = userRepository.findByUserId(subjectFromToken(accessToken));
         if (user == null) {
             throw new CustomException(CustomError.USER_DOES_NOT_EXIST);
         } else {
-            return user.getUserName();
+            ResponseDto.NameResponseDto nameResponseDto = new ResponseDto.NameResponseDto();
+            nameResponseDto.setName(user.getUserName());
+            return nameResponseDto;
         }
     }
 
-    public String findTeamCode(String accessToken, Long userId) {
+    public ResponseDto.TeamCodeResponseDto findTeamCode(String accessToken, Long userId) {
         Long subjectId = subjectFromToken(accessToken);
         User user = userRepository.findByUserId(userId);
         if (user == null) {
@@ -82,11 +85,13 @@ public class UserService {
         } if (!subjectId.equals(userId)) {
             throw new CustomException(CustomError.TOKEN_DOES_NOT_MATCH);
         } else {
-            return user.getTeam().getTeamCode();
+            ResponseDto.TeamCodeResponseDto teamCodeResponseDto = new ResponseDto.TeamCodeResponseDto();
+            teamCodeResponseDto.setTeamCode(user.getTeam().getTeamCode());
+            return teamCodeResponseDto;
         }
     }
 
-    public String registerAdminUser(RegisterAdminUserDto registerAdminUserDto, String accessToken) {
+    public ResponseDto.TeamCodeResponseDto registerAdminUser(RegisterAdminUserDto registerAdminUserDto, String accessToken) {
         Long userId = subjectFromToken(accessToken);
         log.info("userId === {}", userId);
 
@@ -111,11 +116,11 @@ public class UserService {
 
         log.info("TEAM = {}", team.getTeamName());
         log.info("TEAM = {}", team.getId());
-        log.info("USER = {}", user.getUserId());
-        log.info("USER = {}", user.getUserUid());
         log.info("USER = {}", user.getRole());
 
-        return teamCode;
+        ResponseDto.TeamCodeResponseDto teamCodeResponseDto = new ResponseDto.TeamCodeResponseDto();
+        teamCodeResponseDto.setTeamCode(teamCode);
+        return teamCodeResponseDto;
     }
 
     private static String makeCode() {
@@ -158,9 +163,6 @@ public class UserService {
         }
         user.registerInfo(registerUserDto.getName(), team, "ROLE_USER");
         userRepository.save(user);
-        log.info("USER = {}", user.getUserId());
-        log.info("USER = {}", user.getUserUid());
-        log.info("USER = {}", user.getRole());
     }
 
 }
