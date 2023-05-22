@@ -8,7 +8,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
 import kr.co.talk.domain.chatroom.model.Chatroom;
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,5 +32,17 @@ public class ChatroomRepositoryTest {
 	
 		// then
 		assertEquals(findByTeamCodeAndName.get(0).getTeamCode(), teamCode);
+	}
+	
+	@Test
+	@Transactional
+	@Rollback(false)
+	void updateTimeoutTest() {
+	    // given
+	    String teamCode = "test_code2";
+	    long timeout = 1000 * 60 * 100;
+	    // when
+	    chatroomRepository.updateTimeout(teamCode, timeout);
+	    // then
 	}
 }
