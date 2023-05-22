@@ -14,5 +14,8 @@ else
 kill -15 $PID
 fi
 
+sleep 15
+
+
 echo "start~"
 nohup java -jar $JAR_PATH > /dev/null 2>&1 &
