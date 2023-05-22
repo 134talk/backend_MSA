@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="afb7f4e5-10c0-4c11-871e-10e8593e7a10" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/dto/ResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talk134-user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/talk134-user-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,7 +309,7 @@
       <workItem from="1684043851195" duration="1403000" />
       <workItem from="1684128295586" duration="7055000" />
       <workItem from="1684241331256" duration="28325000" />
-      <workItem from="1684390919216" duration="51794000" />
+      <workItem from="1684390919216" duration="52651000" />
     </task>
     <servers />
   </component>

@@ -31,11 +31,11 @@ public class SocialKakaoService {
     private final ObjectMapper objectMapper;
 //    private final RestTemplate restTemplate;
 
-//    @Value("${kakao.url.token}")
-    private String tokenUrl = "https://kauth.kakao.com/oauth/token";
+    @Value("${kakao.url.token}")
+    private String tokenUrl;
 
-//    @Value("${kakao.url.profile}")
-    private String profileUrl = "https://kapi.kakao.com/v2/user/me";
+    @Value("${kakao.url.profile}")
+    private String profileUrl;
 
     public LoginDto login(SocialKakaoDto.TokenRequest requestDto) throws Exception {
 
