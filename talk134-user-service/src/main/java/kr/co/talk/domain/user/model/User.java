@@ -1,18 +1,26 @@
 package kr.co.talk.domain.user.model;
 
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
+@ToString
 @Table(name = "users")
 public class User {
     @Id
     @GeneratedValue
     private Long userId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id")
+    private Team team;
 
     //소셜 로그인시 유저 정보키
     @Column(nullable = false)
@@ -24,8 +32,6 @@ public class User {
     private String nickname;
 
     private String role;
-
-    private String teamCode;
 
     private int statusEnergy;
 
@@ -41,5 +47,10 @@ public class User {
 
     private Timestamp lastLoginTime;
 
+    public void registerInfo(String userName, Team team, String role) {
+        this.userName = userName;
+        this.team = team;
+        this.role = role;
+    }
 
 }

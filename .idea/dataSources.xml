@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="talk134@talk134.cz6t6ngxh4bk.ap-northeast-2.rds.amazonaws.com" uuid="17885498-3c21-4272-ad5b-f80e82a629a6">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://talk134.cz6t6ngxh4bk.ap-northeast-2.rds.amazonaws.com:3306/talk134?useSSL=false&amp;serverTimezone=Asia/Seoul&amp;characterEncoding=UTF-8:3306</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="afb7f4e5-10c0-4c11-871e-10e8593e7a10" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/dto/RegisterAdminUserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/dto/RegisterUserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/model/Team.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/repository/TeamRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk134-statistics-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/talk134-statistics-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/dto/SocialKakaoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/dto/SocialKakaoDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/service/SocialKakaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/service/SocialKakaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/domain/user/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/global/exception/CustomError.java" beforeDir="false" afterPath="$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/global/exception/CustomError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talk134-user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/talk134-user-service/src/main/resources/application.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/talk134-apigateway">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/talk134-chat-service">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/talk134-eureka">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/talk134-statistics-service">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/talk134-user-service">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/talk134-eureka">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/talk134-chat-service">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="talk134-chat-service" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="talk134-chat-service" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="talk134-chat-service" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="talk134-eureka" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="talk134-eureka" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="talk134-eureka" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="talk134-eureka" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/talk134-apigateway/src/main/java/kr/co/talk/Talk134ApigatewayApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/talk134-apigateway/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/talk134-eureka/src/main/java/kr/co/talk/Talk134EurekaApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/talk134-statistics-service/src/main/java/kr/co/talk/Talk134StatisticsServiceApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/talk134-user-service/src/main/java/kr/co/talk/Talk134UserServiceApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/talk134-user-service/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2POny9T0LaFDYNBIQ6zLfPuiNUL" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelOrder2": "2",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RequestMappingsPanelWidth2": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "11",
+    "last_opened_file_path": "C:/Users/00003807/Downloads/eureka-2.0.0/eureka-2.0.0",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "spring.configuration.checksum": "1bc1ea962830fe7eb44951bdf12455b6"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\00003807\Downloads\backend_MSA\talk134-chat-service\src\main\java\kr\co\talk\global\service\redis" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="kr.co.talk.global.constants" />
+      <recent name="kr.co.talk.global.config" />
+      <recent name="kr.co.talk.global.config.kafka" />
+      <recent name="kr.co.talk.global.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Talk134UserServiceApplication">
+    <configuration name="RedisServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/talk134-chat-service" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;kr.co.talk.redis.RedisServiceTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="RedisServiceTest.setValuesWithTimeoutTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/talk134-chat-service" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;kr.co.talk.RedisServiceTest.setValuesWithTimeoutTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Talk134ChatServiceApplicationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/talk134-chat-service" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;kr.co.talk.Talk134ChatServiceApplicationTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="talk134-chat-service [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/talk134-chat-service" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Talk134ApigatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="talk134-apigateway.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="kr.co.talk.Talk134ApigatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Talk134ChatServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="talk134-chat-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="kr.co.talk.Talk134ChatServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Talk134EurekaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="talk134-eureka.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="kr.co.talk.Talk134EurekaApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kr.co.talk.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Talk134StatisticsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="talk134-statistics-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="kr.co.talk.Talk134StatisticsServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Talk134UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="talk134-user-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="kr.co.talk.Talk134UserServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.Talk134EurekaApplication" />
+        <item itemvalue="Gradle.RedisServiceTest" />
+        <item itemvalue="Gradle.talk134-chat-service [build]" />
+        <item itemvalue="Gradle.RedisServiceTest.setValuesWithTimeoutTest" />
+        <item itemvalue="Gradle.Talk134ChatServiceApplicationTests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="afb7f4e5-10c0-4c11-871e-10e8593e7a10" name="Changes" comment="" />
+      <created>1683337248154</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683337248154</updated>
+      <workItem from="1683337252192" duration="9125000" />
+      <workItem from="1683435463797" duration="44000" />
+      <workItem from="1683436671253" duration="23908000" />
+      <workItem from="1683648269451" duration="2166000" />
+      <workItem from="1683683248318" duration="89884000" />
+      <workItem from="1684043851195" duration="1403000" />
+      <workItem from="1684128295586" duration="7055000" />
+      <workItem from="1684241331256" duration="28325000" />
+      <workItem from="1684390919216" duration="50801000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

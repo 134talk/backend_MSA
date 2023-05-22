@@ -21,6 +21,6 @@ spring:
       database: database
       username: ${mongoDB.username}
       password: ${mongoDB.password}
-      uri: ${mongoDB.uri}
+      uri: "mongodb://134talk1:134talk1@3.34.3.145:27017/database?authSource=admin"
   kafka:
     bootstrap-servers: ${KAFKA_CLUSTER01},${KAFKA_CLUSTER02},${KAFKA_CLUSTER03}

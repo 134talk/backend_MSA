@@ -14,6 +14,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -28,13 +29,13 @@ public class SocialKakaoService {
     private final UserService userService;
     private final AuthService authService;
     private final ObjectMapper objectMapper;
-    private final RestTemplate restTemplate;
+//    private final RestTemplate restTemplate;
 
-    @Value("${kakao.url.token}")
-    private String tokenUrl;
+//    @Value("${kakao.url.token}")
+    private String tokenUrl = "https://kauth.kakao.com/oauth/token";
 
-    @Value("${kakao.url.profile}")
-    private String profileUrl;
+//    @Value("${kakao.url.profile}")
+    private String profileUrl = "https://kapi.kakao.com/v2/user/me";
 
     public LoginDto login(SocialKakaoDto.TokenRequest requestDto) throws Exception {
 
@@ -58,8 +59,11 @@ public class SocialKakaoService {
         loginDto.setAccessToken(authToken.getAccessToken());
         loginDto.setRefreshToken(authToken.getRefreshToken());
         loginDto.setNickname(user.getNickname());
-        loginDto.setTeamCode(user.getTeamCode());
-
+        if (user.getTeam() != null) {
+            loginDto.setTeamCode(user.getTeam().getTeamCode());
+        } else {
+            loginDto.setTeamCode(null);
+        }
         return loginDto;
 
     }
@@ -68,9 +72,12 @@ public class SocialKakaoService {
      * 액세스 토큰 조회
      * **/
     private SocialKakaoDto.TokenResponse getAccessToken(SocialKakaoDto.TokenRequest requestDto) throws Exception {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
         //header
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        headers.add("Accept", "application/json");
 
         //param
         MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<>();
@@ -97,12 +104,15 @@ public class SocialKakaoService {
     /**
      * 액세스 토큰으로 유저 정보 조회
      * **/
-    private SocialKakaoDto.UserInfo getUserInfo(String token) throws Exception {
+    public SocialKakaoDto.UserInfo getUserInfo(String token) throws Exception {
         RestTemplate restTemplate = new RestTemplate();
+        restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
 
         //header
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + token);
+        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        headers.add("Accept", "application/json");
 
         //param
         MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<>();
