@@ -39,5 +39,10 @@ public class UserController {
         return userService.findTeamCode(accessToken, userId);
     }
 
+    @GetMapping("/id/{name}")
+    public ResponseDto.UserIdResponseDto getUserIdByName (@RequestHeader("Authorization") String accessToken, @PathVariable String name) {
+        return userService.findIdByName(accessToken, name);
+    }
+
 }
 

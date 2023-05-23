@@ -77,6 +77,18 @@ public class UserService {
         }
     }
 
+    public ResponseDto.UserIdResponseDto findIdByName(String accessToken, String name) {
+        Long userFromToken = subjectFromToken(accessToken);
+        Optional<User> user = userRepository.findUserByUserName(name);
+        if (user == null || !userFromToken.equals(user.get().getUserId())) {
+            throw new CustomException(CustomError.USER_DOES_NOT_EXIST);
+        } else {
+            ResponseDto.UserIdResponseDto userIdResponseDto= new ResponseDto.UserIdResponseDto();
+            userIdResponseDto.setUserId(user.get().getUserId());
+            return userIdResponseDto;
+        }
+    }
+
     public ResponseDto.TeamCodeResponseDto findTeamCode(String accessToken, Long userId) {
         Long subjectId = subjectFromToken(accessToken);
         User user = userRepository.findByUserId(userId);

@@ -2,7 +2,7 @@ spring:
   config:
     import: optional:configserver:http://13.124.204.48:8081
   application:
-    name: user-service
+    name: user-service, common-config
   profiles:
     active: default
 
@@ -13,9 +13,6 @@ spring:
         enabled: true
 
 management:
-  endpoint:
-    refresh:
-      enabled: true
   endpoints:
     web:
       exposure:

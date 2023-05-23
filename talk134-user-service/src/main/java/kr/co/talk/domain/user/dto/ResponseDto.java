@@ -16,4 +16,9 @@ public class ResponseDto {
     public static class TeamCodeResponseDto{
         private String teamCode;
     }
+
+    @Data
+    public static class UserIdResponseDto {
+        private Long userId;
+    }
 }
