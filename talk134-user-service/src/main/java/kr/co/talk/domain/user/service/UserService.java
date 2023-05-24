@@ -16,8 +16,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -77,25 +79,21 @@ public class UserService {
         }
     }
 
-    public ResponseDto.UserIdResponseDto findIdByName(String accessToken, String name) {
-        Long userFromToken = subjectFromToken(accessToken);
-        Optional<User> user = userRepository.findUserByUserName(name);
-        if (user == null || !userFromToken.equals(user.get().getUserId())) {
+    public ResponseDto.UserIdResponseDto searchUserId(String searchName) {
+        List<User> user = userRepository.findUserByUserNameOrNickname(searchName);
+        if (user == null) {
             throw new CustomException(CustomError.USER_DOES_NOT_EXIST);
         } else {
             ResponseDto.UserIdResponseDto userIdResponseDto= new ResponseDto.UserIdResponseDto();
-            userIdResponseDto.setUserId(user.get().getUserId());
+            userIdResponseDto.setUserId(user.stream().map(User::getUserId).collect(Collectors.toList()));
             return userIdResponseDto;
         }
     }
 
-    public ResponseDto.TeamCodeResponseDto findTeamCode(String accessToken, Long userId) {
-        Long subjectId = subjectFromToken(accessToken);
+    public ResponseDto.TeamCodeResponseDto findTeamCode(Long userId) {
         User user = userRepository.findByUserId(userId);
         if (user == null) {
-            return null;
-        } if (!subjectId.equals(userId)) {
-            throw new CustomException(CustomError.TOKEN_DOES_NOT_MATCH);
+            throw new CustomException(CustomError.USER_DOES_NOT_EXIST);
         } else {
             ResponseDto.TeamCodeResponseDto teamCodeResponseDto = new ResponseDto.TeamCodeResponseDto();
             teamCodeResponseDto.setTeamCode(user.getTeam().getTeamCode());

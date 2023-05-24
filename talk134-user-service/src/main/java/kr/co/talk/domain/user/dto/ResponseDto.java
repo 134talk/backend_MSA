@@ -3,6 +3,8 @@ package kr.co.talk.domain.user.dto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 public class ResponseDto {
@@ -19,6 +21,6 @@ public class ResponseDto {
 
     @Data
     public static class UserIdResponseDto {
-        private Long userId;
+        private List<Long> userId;
     }
 }

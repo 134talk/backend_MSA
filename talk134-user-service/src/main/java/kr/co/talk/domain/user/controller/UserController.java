@@ -35,13 +35,13 @@ public class UserController {
     }
 
     @GetMapping("/teamCode/{userId}")
-    public ResponseDto.TeamCodeResponseDto getUserTeamCode(@RequestHeader("Authorization") String accessToken, @PathVariable Long userId) {
-        return userService.findTeamCode(accessToken, userId);
+    public ResponseDto.TeamCodeResponseDto getUserTeamCode(@PathVariable Long userId) {
+        return userService.findTeamCode(userId);
     }
 
-    @GetMapping("/id/{name}")
-    public ResponseDto.UserIdResponseDto getUserIdByName (@RequestHeader("Authorization") String accessToken, @PathVariable String name) {
-        return userService.findIdByName(accessToken, name);
+    @GetMapping("/id/{searchName}")
+    public ResponseDto.UserIdResponseDto getUserIdByName (@PathVariable("searchName") String searchName) {
+        return userService.searchUserId(searchName);
     }
 
 }
