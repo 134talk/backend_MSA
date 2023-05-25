@@ -19,23 +19,23 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/admin/register")
-    public ResponseDto.TeamCodeResponseDto registerAdminUser(@RequestBody RegisterAdminUserDto registerAdminUserDto, @RequestHeader("Authorization") String accessToken) {
-        return userService.registerAdminUser(registerAdminUserDto, accessToken);
+    public ResponseDto.TeamCodeResponseDto registerAdminUser(@RequestBody RegisterAdminUserDto registerAdminUserDto, @RequestHeader(value = "userId") Long userId) {
+        return userService.registerAdminUser(registerAdminUserDto, userId);
     }
 
     @PostMapping("/register")
-    public ResponseEntity registerUser(@RequestBody RegisterUserDto registerUserDto, @RequestHeader("Authorization") String accessToken) {
-        userService.registerUser(registerUserDto, accessToken);
+    public ResponseEntity registerUser(@RequestBody RegisterUserDto registerUserDto, @RequestHeader(value = "userId") Long userId) {
+        userService.registerUser(registerUserDto, userId);
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @GetMapping("/name")
-    public ResponseDto.NameResponseDto findUserName(@RequestHeader("Authorization") String accessToken) {
-        return userService.nameFromUser(accessToken);
+    public ResponseDto.NameResponseDto findUserName(@RequestHeader(value = "userId") Long userId) {
+        return userService.nameFromUser(userId);
     }
 
     @GetMapping("/teamCode/{userId}")
-    public ResponseDto.TeamCodeResponseDto getUserTeamCode(@PathVariable Long userId) {
+    public ResponseDto.TeamCodeResponseDto getUserTeamCode(@PathVariable("userId") Long userId) {
         return userService.findTeamCode(userId);
     }
 

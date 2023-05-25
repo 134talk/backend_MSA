@@ -20,5 +20,6 @@ public class Team {
     private String teamName;
 
     private String teamCode;
+    private int timeout;
 
 }

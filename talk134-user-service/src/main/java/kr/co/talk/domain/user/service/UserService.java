@@ -62,14 +62,8 @@ public class UserService {
         return teamCode;
     }
 
-    public Long subjectFromToken(String accessToken) {
-        jwtTokenProvider.validAccessToken(accessToken);
-        Long userId = Long.valueOf(jwtTokenProvider.getAccessTokenSubject(accessToken));
-        return userId;
-    }
-
-    public ResponseDto.NameResponseDto nameFromUser(String accessToken) {
-        User user = userRepository.findByUserId(subjectFromToken(accessToken));
+    public ResponseDto.NameResponseDto nameFromUser(Long userId) {
+        User user = userRepository.findByUserId(userId);
         if (user == null) {
             throw new CustomException(CustomError.USER_DOES_NOT_EXIST);
         } else {
@@ -101,10 +95,7 @@ public class UserService {
         }
     }
 
-    public ResponseDto.TeamCodeResponseDto registerAdminUser(RegisterAdminUserDto registerAdminUserDto, String accessToken) {
-        Long userId = subjectFromToken(accessToken);
-        log.info("userId === {}", userId);
-
+    public ResponseDto.TeamCodeResponseDto registerAdminUser(RegisterAdminUserDto registerAdminUserDto, Long userId) {
         String teamCode = saveTeam(registerAdminUserDto);
         Team team = teamRepository.findTeamByTeamCode(teamCode);
 
@@ -149,10 +140,7 @@ public class UserService {
         return code;
     }
 
-    public void registerUser(RegisterUserDto registerUserDto, String accessToken) {
-        Long userId = subjectFromToken(accessToken);
-        log.info("userId === {}", userId);
-
+    public void registerUser(RegisterUserDto registerUserDto, Long userId) {
         Team team = teamRepository.findTeamByTeamCode(registerUserDto.getTeamCode());
         if (team == null) {
             throw new CustomException(CustomError.TEAM_CODE_NOT_FOUND);
