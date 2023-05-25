@@ -38,13 +38,11 @@ public class SocialKakaoDto {
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class UserInfo {
-        private String id;
+        private String id; //uid
 
         //UserInfo -> User Entity
         public User createUser(){
-            User user = new User();
-            user.setUserUid(id);
-            user.setRole("ROLE_USER");
+            User user = User.builder().userUid(id).role("ROLE_USER").build();
             return user;
         }
     }
