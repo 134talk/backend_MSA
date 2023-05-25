@@ -14,7 +14,11 @@ spring:
   application:
     name: config-service, common-config
   kafka:
+<<<<<<< HEAD
     bootstrap-servers: ${KAFKA_CLUSTER01:43.201.135.148:9092},${KAFKA_CLUSTER02:43.200.40.62:9092},${KAFKA_CLUSTER03:43.201.243.40:9092}  
+=======
+    bootstrap-servers: ${KAFKA_CLUSTER01:43.201.135.148:9092},${KAFKA_CLUSTER02:43.200.40.62:9092},${KAFKA_CLUSTER03:43.201.243.40:9092}
+>>>>>>> f5a5ab9a2f7b2e9777ec88583ea25261761a1d70
 
   cloud:
     bus:
@@ -29,8 +33,11 @@ spring:
           ignore-local-ssh-settings: true
         encrypt:
           enabled: false
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f5a5ab9a2f7b2e9777ec88583ea25261761a1d70
 
 jasypt:
   encryptor:

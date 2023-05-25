@@ -1,0 +1,23 @@
+spring:
+  config:
+    import: optional:configserver:http://localhost:8081
+  application:
+    name: user-service, common-config
+  profiles:
+    active: default
+
+  cloud:
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+
+  kafka:
+    bootstrap-servers: 192.168.56.101:9092
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, busrefresh
+

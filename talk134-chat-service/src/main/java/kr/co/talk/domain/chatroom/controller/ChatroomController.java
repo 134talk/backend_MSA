@@ -78,20 +78,20 @@ public class ChatroomController {
         chatRoomService.createChatroom(teamCode, userList);
         return ResponseEntity.ok().build();
     }
-
-    /**
-     * 대화 설정 api
-     * 
-     * @param userId
-     * @param timeout
-     * @return
-     */
-    @PutMapping("/update-timeout/{timeout}")
-    public ResponseEntity<?> updateTimeout(@RequestHeader(value = "userId") String userId,
-            @PathVariable(name = "timeout") long timeout) {
-        String teamCode = userClient.getTeamCode(Long.valueOf(userId));
-        chatRoomService.updateTimeout(teamCode, timeout);
-        return ResponseEntity.ok().build();
-    }
+//
+//    /**
+//     * 대화 설정 api
+//     * 
+//     * @param userId
+//     * @param timeout
+//     * @return
+//     */
+//    @PutMapping("/update-timeout/{timeout}")
+//    public ResponseEntity<?> updateTimeout(@RequestHeader(value = "userId") String userId,
+//            @PathVariable(name = "timeout") long timeout) {
+//        String teamCode = userClient.getTeamCode(Long.valueOf(userId));
+//        chatRoomService.updateTimeout(teamCode, timeout);
+//        return ResponseEntity.ok().build();
+//    }
 
 }

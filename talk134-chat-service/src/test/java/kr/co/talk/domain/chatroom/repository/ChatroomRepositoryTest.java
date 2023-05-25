@@ -34,15 +34,4 @@ public class ChatroomRepositoryTest {
 		assertEquals(findByTeamCodeAndName.get(0).getTeamCode(), teamCode);
 	}
 	
-	@Test
-	@Transactional
-	@Rollback(false)
-	void updateTimeoutTest() {
-	    // given
-	    String teamCode = "test_code2";
-	    long timeout = 1000 * 60 * 100;
-	    // when
-	    chatroomRepository.updateTimeout(teamCode, timeout);
-	    // then
-	}
 }

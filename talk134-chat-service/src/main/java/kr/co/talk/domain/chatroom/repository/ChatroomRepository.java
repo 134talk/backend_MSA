@@ -8,7 +8,7 @@ import kr.co.talk.domain.chatroom.model.Chatroom;
 
 public interface ChatroomRepository
         extends JpaRepository<Chatroom, Long>, ChatroomCustomRepository {
-    @Modifying(clearAutomatically = true)
-    @Query("update Chatroom c set c.timeout = :timeout where teamCode = :teamCode")
-    public int updateTimeout(@Param("teamCode") String teamCode, @Param(value = "timeout") long timeout);
+//    @Modifying(clearAutomatically = true)
+//    @Query("update Chatroom c set c.timeout = :timeout where teamCode = :teamCode")
+//    public int updateTimeout(@Param("teamCode") String teamCode, @Param(value = "timeout") long timeout);
 }

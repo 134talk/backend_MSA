@@ -46,17 +46,10 @@ public class Chatroom {
     @UpdateTimestamp
     private Timestamp lastUpdateTime;
 
-    private long timeout; // 기본 30분
-
     private String teamCode;
 
     @OneToMany(mappedBy = "chatroom", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @ToString.Exclude
     private List<ChatroomUsers> chatroomUsers = new ArrayList<>();
 
-    @PrePersist
-    public void prePersist() {
-        // timeout default value 30분
-        this.timeout = this.timeout == 0 ? 1800000 : this.timeout;
-    }
 }

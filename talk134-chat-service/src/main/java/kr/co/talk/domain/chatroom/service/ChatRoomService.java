@@ -107,7 +107,6 @@ public class ChatRoomService {
         Chatroom chatroom = Chatroom.builder()
                 .name("")
                 .teamCode(teamCode)
-                .timeout(0) // TODO timeout
                 .build();
 
         List<ChatroomUsers> chatroomUsers = userList.stream().map(userId -> {
@@ -128,8 +127,8 @@ public class ChatRoomService {
         redisService.pushNoticeList(RedisConstants.ROOM_NOTICE, chatroomNoticeDto);
     }
 
-    @Transactional
-    public void updateTimeout(String teamCode, long timeout) {
-        chatroomRepository.updateTimeout(teamCode, timeout);
-    }
+//    @Transactional
+//    public void updateTimeout(String teamCode, long timeout) {
+//        chatroomRepository.updateTimeout(teamCode, timeout);
+//    }
 }
