@@ -7,4 +7,6 @@ public interface ChatroomCustomRepository {
 	public List<Chatroom> findByTeamCode(String teamCode);
 
 	public List<Chatroom> findByTeamCodeAndName(String teamCode, List<Long> userIds);
+	
+//	public long selectTimeoutByTeamCode(String teamCode);
 }

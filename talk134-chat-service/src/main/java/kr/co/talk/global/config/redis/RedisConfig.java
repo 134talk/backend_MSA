@@ -1,6 +1,7 @@
 package kr.co.talk.global.config.redis;
 
 import kr.co.talk.domain.chatroom.dto.ChatDto;
+import kr.co.talk.domain.chatroom.dto.ChatroomNoticeDto;
 import kr.co.talk.domain.chatroom.dto.RoomEmoticon;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -64,6 +65,15 @@ public class RedisConfig {
 		redisTemplate.setKeySerializer(new StringRedisSerializer());
 		redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(ChatDto.class));
 		return redisTemplate;
+	}
+	
+	@Bean
+	public RedisTemplate<String, ChatroomNoticeDto> chatroomNoticeDtoRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+	    RedisTemplate<String, ChatroomNoticeDto> redisTemplate = new RedisTemplate<>();
+	    redisTemplate.setConnectionFactory(redisConnectionFactory);
+	    redisTemplate.setKeySerializer(new StringRedisSerializer());
+	    redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(ChatroomNoticeDto.class));
+	    return redisTemplate;
 	}
 	
 }

@@ -5,10 +5,11 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
+import org.joda.time.LocalDateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import kr.co.talk.domain.chatroom.dto.ChatroomListDto;
+import kr.co.talk.domain.chatroom.dto.ChatroomNoticeDto;
 import kr.co.talk.domain.chatroom.dto.Emoticons;
 import kr.co.talk.domain.chatroom.dto.RoomEmoticon;
 import kr.co.talk.domain.chatroom.model.Chatroom;
@@ -17,6 +18,7 @@ import kr.co.talk.domain.chatroom.repository.ChatroomRepository;
 import kr.co.talk.domain.chatroom.scheduler.ChatroomTimeoutScheduler;
 import kr.co.talk.domain.chatroomusers.entity.ChatroomUsers;
 import kr.co.talk.domain.chatroomusers.repository.ChatroomUsersRepository;
+import kr.co.talk.global.constants.RedisConstants;
 import kr.co.talk.global.service.redis.RedisService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -99,9 +101,13 @@ public class ChatRoomService {
 
     @Transactional
     public void createChatroom(String teamCode, List<Long> userList) {
+        // TODO User service에서 timeout 시간 알아옴
+        
+        
         Chatroom chatroom = Chatroom.builder()
                 .name("")
                 .teamCode(teamCode)
+                .timeout(0) // TODO timeout
                 .build();
 
         List<ChatroomUsers> chatroomUsers = userList.stream().map(userId -> {
@@ -112,7 +118,14 @@ public class ChatRoomService {
         }).collect(Collectors.toList());
 
         chatroomUsersRepository.saveAll(chatroomUsers);
-        ChatroomTimeoutScheduler.noticeChatroom(chatroom);
+        
+        
+        ChatroomNoticeDto chatroomNoticeDto = ChatroomNoticeDto.builder()
+                .roomId(chatroom.getChatroomId())
+                .timeout(1000)  // TODO timeout
+                .createTime(System.currentTimeMillis())
+                .build();
+        redisService.pushNoticeList(RedisConstants.ROOM_NOTICE, chatroomNoticeDto);
     }
 
     @Transactional

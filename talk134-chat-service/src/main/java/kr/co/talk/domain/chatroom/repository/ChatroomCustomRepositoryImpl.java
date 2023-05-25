@@ -30,4 +30,5 @@ public class ChatroomCustomRepositoryImpl implements ChatroomCustomRepository {
 						chatroomUsers.userId.in(userIds))
 				.fetch();
 	}
+
 }

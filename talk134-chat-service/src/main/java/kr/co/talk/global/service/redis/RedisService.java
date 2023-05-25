@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import kr.co.talk.domain.chatroom.dto.ChatroomNoticeDto;
 import kr.co.talk.domain.chatroom.dto.RoomEmoticon;
 import kr.co.talk.global.constants.RedisConstants;
 import lombok.RequiredArgsConstructor;
@@ -26,66 +26,84 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 public class RedisService {
-	private final StringRedisTemplate stringRedisTemplate;
-	private final RedisTemplate<String, String> redisTemplate;
-	private final ObjectMapper objectMapper;
+    private final StringRedisTemplate stringRedisTemplate;
+    private final RedisTemplate<String, String> redisTemplate;
+    private final RedisTemplate<String, ChatroomNoticeDto> chatroomNoticeDtoRedisTemplate;
+    private final ObjectMapper objectMapper;
 
-	private ValueOperations<String, String> valueOps;
-	private ListOperations<String, String> opsForList;
+    private ValueOperations<String, String> valueOps;
+    private ListOperations<String, String> opsForList;
+    private ListOperations<String, ChatroomNoticeDto> opsForNoticeList;
 
-	@PostConstruct
-	public void init() {
-		valueOps = stringRedisTemplate.opsForValue();
-		opsForList = redisTemplate.opsForList();
-	}
+    @PostConstruct
+    public void init() {
+        valueOps = stringRedisTemplate.opsForValue();
+        opsForList = redisTemplate.opsForList();
+        opsForNoticeList = chatroomNoticeDtoRedisTemplate.opsForList();
+    }
 
-	/**
-	 * get value
-	 * 
-	 * @param key
-	 * @return
-	 */
-	public String getValues(String key) {
-		return valueOps.get(key);
-	}
+    /**
+     * get value
+     * 
+     * @param key
+     * @return
+     */
+    public String getValues(String key) {
+        return valueOps.get(key);
+    }
 
-	/**
-	 * set value with timeout
-	 *
-	 * @param key
-	 * @param value
-	 * @param timeout
-	 */
-	public void setValuesWithTimeout(String key, String value, long timeout) {
-		stringRedisTemplate.opsForValue().set(key, value, Duration.ofMillis(timeout));
-	}
+    /**
+     * set value with timeout
+     *
+     * @param key
+     * @param value
+     * @param timeout
+     */
+    public void setValuesWithTimeout(String key, String value, long timeout) {
+        stringRedisTemplate.opsForValue().set(key, value, Duration.ofMillis(timeout));
+    }
 
-	public void pushList(String key, Object value) {
-		try {
-			String item = objectMapper.writeValueAsString(value);
-			opsForList.leftPush(key, item);
-		} catch (JsonProcessingException e) {
-			log.error("json parse exception , key is :: {}, value is :: {}", key, value, e);
-			throw new RuntimeException(e);
-		}
-	}
+    public void pushList(String key, Object value) {
+        try {
+            String item = objectMapper.writeValueAsString(value);
+            opsForList.leftPush(key, item);
+        } catch (JsonProcessingException e) {
+            log.error("json parse exception , key is :: {}, value is :: {}", key, value, e);
+            throw new RuntimeException(e);
+        }
+    }
 
-	public List<String> getList(String key) {
-		return opsForList.size(key) == 0 ? new ArrayList<>() : opsForList.range(key, 0, -1);
-	}
+    public List<String> getList(String key) {
+        return opsForList.size(key) == 0 ? new ArrayList<>() : opsForList.range(key, 0, -1);
+    }
 
-	public List<RoomEmoticon> getEmoticonList(long chatroomId) {
-		String key = chatroomId + RedisConstants.ROOM_EMOTICON;
-		List<String> emoticonList = opsForList.size(key) == 0 ? new ArrayList<>() : opsForList.range(key, 0, -1);
+    public List<RoomEmoticon> getEmoticonList(long chatroomId) {
+        String key = chatroomId + RedisConstants.ROOM_EMOTICON;
+        List<String> emoticonList =
+                opsForList.size(key) == 0 ? new ArrayList<>() : opsForList.range(key, 0, -1);
 
-		return emoticonList.stream().map(s -> {
-			try {
-				return objectMapper.readValue(s, RoomEmoticon.class);
-			} catch (JsonProcessingException e) {
-				log.error("json parse error", e);
-				throw new RuntimeException(e);
-			}
-		}).collect(Collectors.toList());
+        return emoticonList.stream().map(s -> {
+            try {
+                return objectMapper.readValue(s, RoomEmoticon.class);
+            } catch (JsonProcessingException e) {
+                log.error("json parse error", e);
+                throw new RuntimeException(e);
+            }
+        }).collect(Collectors.toList());
 
-	}
+    }
+
+    /**
+     * 채팅방이 생성될때 redis에 저장
+     * 
+     * @param key
+     * @param chatroomNoticeDto
+     */
+    public void pushNoticeList(String key, ChatroomNoticeDto chatroomNoticeDto) {
+        opsForNoticeList.leftPush(key, chatroomNoticeDto);
+    }
+    
+    public List<ChatroomNoticeDto> getChatroomNoticeList() {
+       return opsForNoticeList.range(RedisConstants.ROOM_NOTICE, 0, -1);
+    }
 }

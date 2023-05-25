@@ -32,23 +32,8 @@ import java.util.Set;
 @RequestMapping("/chat")
 public class ChatroomController {
 
-    private final ChatRoomSender chatRoomSender;
     private final UserClient userClient;
     private final ChatRoomService chatRoomService;
-
-
-    @GetMapping("/send")
-    public String send() throws JsonProcessingException {
-        chatRoomSender.sendEndChatting(32L);
-        // chatRoomSender.test_send();
-        return "성공";
-    }
-
-    @GetMapping("/sendMessage")
-    public List<ChatDto> sendMessage() throws JsonProcessingException {
-        return chatRoomSender
-                .sendMessageToKafka(ChatroomSendDto.builder().roomId(32L).userId(1L).build());
-    }
 
     /**
      * 대화방 목록 조회 api

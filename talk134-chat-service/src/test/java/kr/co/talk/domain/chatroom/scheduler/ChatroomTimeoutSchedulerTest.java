@@ -16,13 +16,14 @@ public class ChatroomTimeoutSchedulerTest {
     @Autowired
     private ChatroomRepository chatroomRepository;
 
-    @Test
-    @DisplayName("채팅방 마감 알림 테스트")
-    public void noticeChatroomTest() throws InterruptedException {
-        List<Chatroom> chatroomList = chatroomRepository.findByTeamCode("test_code2");
-        chatroomList.forEach(cr -> ChatroomTimeoutScheduler.noticeChatroom(cr));
-        
-        Thread.sleep(10000);
-    }
+//    @Test
+//    @DisplayName("채팅방 마감 알림 테스트")
+//    public void noticeChatroomTest() throws InterruptedException {
+//        List<Chatroom> chatroomList = chatroomRepository.findByTeamCode("test_code2");
+//        chatroomList.forEach(cr -> ChatroomTimeoutScheduler.noticeChatroom(cr));
+//        
+//        Thread.sleep(10000);
+//    }
+//    
 
 }
