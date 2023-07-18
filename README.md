@@ -108,5 +108,20 @@
 - **Github Actions** 로 지속적 배포를 진행해요. 
 
 
+## 🎫 ERD
+#### User Service
+AWS RDS(MySql)  
+![image](https://github.com/134talk/backend_MSA/assets/67637716/9bff1ad5-32df-41c3-8a34-95bbcf0e068a)  
+
+#### Chat Service
+AWS RDS(MySql)  
+![image](https://github.com/134talk/backend_MSA/assets/67637716/f73b717b-f116-4568-9d2b-fd0f80a9a041)  
+
+#### Statistics Service
+AWS DynamoDB  
+![image](https://github.com/134talk/backend_MSA/assets/67637716/b0585e86-96dc-406e-b255-4005aa8a127f)  
+
+
+
 ## 🌈 Members
 
