@@ -1,0 +1,18 @@
+[submodule "talk134-apigateway"]
+	path = talk134-apigateway
+	url = https://github.com/134talk/talk134-apigateway.git
+[submodule "talk134-chat-service"]
+	path = talk134-chat-service
+	url = https://github.com/134talk/talk134-chat-service.git
+[submodule "talk134-user-service"]
+	path = talk134-user-service
+	url = https://github.com/134talk/talk134-user-service.git
+[submodule "talk134-statistics-service"]
+	path = talk134-statistics-service
+	url = https://github.com/134talk/talk134-statistics-service.git
+[submodule "talk134-config-service"]
+	path = talk134-config-service
+	url = https://github.com/134talk/talk134-config-service.git
+[submodule "talk134-eureka"]
+	path = talk134-eureka
+	url = https://github.com/134talk/talk134-eureka.git
