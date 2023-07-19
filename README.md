@@ -7,7 +7,7 @@
 ## 🍻 Intro
 
 <p align="center">
-  <img width="640" alt="image" src="https://foo.bar/foo.img">
+  <img width="640" alt="image" src="https://github.com/134talk/backend_MSA/assets/107406265/2e53f26d-31d2-41e3-b4f1-5ce375d71c14">
 </p>
 <p align="center">
   <img src="https://img.shields.io/badge/react-v18.2.0-9cf?logo=react" alt="react" />
