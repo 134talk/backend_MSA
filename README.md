@@ -6,17 +6,6 @@
 
 ## 🍻 Intro
 
-<p align="center">
-  <img width="640" alt="image" src=>
-</p>
-<p align="center">
-  <img src="https://img.shields.io/badge/react-v17.0.2-9cf?logo=react" alt="react" />
-  <img src="https://img.shields.io/badge/spring_boot-v2.7.12-green?logo=springboot"  alt="spring-boot" />
-  <img src="https://img.shields.io/badge/typescript-v4.3.5-blue?logo=typescript" alt="typescript"/>
-  <img src="https://img.shields.io/badge/mysql-v8.0.26-blue?logo=mysql" alt="mysql"/>
-</p>
-
-
 100가지 인생의 주요한 질문들을 듣고,\
 너와 나를 꺼내보는 낯선 대화를 나누는 **talk134** 대화 플랫폼입니다.
 
@@ -26,7 +15,9 @@
 바로, **talk134**
 </br>
 
+
 ## 🚀 Demo
+
 
 ## ⚡️ Skills
 
