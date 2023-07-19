@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/badge/typescript-v4.3.5-blue?logo=typescript" alt="typescript"/>
   <img src="https://img.shields.io/badge/mysql-v8.0.26-blue?logo=mysql" alt="mysql"/>
 </p>
-</br>
+
 100가지 인생의 주요한 질문들을 듣고,\
 너와 나를 꺼내보는 낯선 대화를 나누는 **talk134** 대화 플랫폼입니다.
 
@@ -24,6 +24,7 @@
 
 바로, **talk134**
 </br>
+
 
 ## 🚀 Demo (안해도 됨)
 
