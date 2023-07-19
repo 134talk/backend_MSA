@@ -53,45 +53,80 @@
 
 ---
 
-### Infra Structure
+## 🏰 Architecture
+<img src="https://github.com/134talk/backend_MSA/assets/67637716/0459f0c3-932b-4832-bb86-6e9dcd73c6bb" alt="image" width=70%>  
 
+#### Config
 <p>
-  <img src="https://foo.bar/foo.png" alt="image" width=15%>
-  <img src="https://foo.bar/foo.png" alt="image" width=15%>
+  <img src="https://github.com/134talk/backend_MSA/assets/67637716/e6405bae-abe3-4795-8496-8398602082f9" alt="image" width=15%>
+  <img src="https://github.com/134talk/backend_MSA/assets/67637716/d63bb187-c160-4462-bdcc-95d30fb1fc86" alt="image" width=15%>
 </p>
 
-- **AWS EC2** 를 사용해 서버를 구축했어요.
+- **Spring Cloud Config** 를 사용해 중앙 설정 저장소로 관리했어요.
+- **Github** private config repository로 사용했어요.
 
-#### CI/CD
-
+#### Server
 <p>
-  <img src="https://user-images.githubusercontent.com/52682603/138834259-b48d26eb-b6e8-490c-a839-450d8ab9bfd2.png" alt="jenkins" width=15%>
-  <img src="https://user-images.githubusercontent.com/52682603/138834250-77b1ee2e-2cd2-492a-a789-0282d4fac0b8.png" alt="sonarqube" width=15%>
-  <img src="https://user-images.githubusercontent.com/52682603/138834229-e8a9dcb0-bdb8-4aec-9a3e-be1f9ff44149.png" alt="github_actions" width=15%>
+  <img src="https://github.com/134talk/backend_MSA/assets/67637716/1d2ec605-a6a1-431b-9d28-750aef657f6c" alt="image" width=15%>
+  <img src="https://github.com/134talk/backend_MSA/assets/67637716/83f9fd03-9603-450a-abd4-a56e25979588" alt="image" width=15%>
+  <img src="https://github.com/134talk/backend_MSA/assets/67637716/334d54e8-725c-4531-b801-1abcc5334da2" alt="image" width=15%>
 </p>
 
-- **Jenkins** 로 백엔드 코드의 지속적 배포와 무중단 배포를 진행해요.
-- **Github Actions** 로 코드 퀄리티와 테스트를 검사해요. 프론트엔드 코드의 지속적 배포를 진행해요. 
+- **AWS Route53** 을 사용해 Domain Name Server를 구축했어요.
+- **AWS S3** 를 사용해 프로필 사진 저장소로 사용했어요.
+- **AWS EC2** 를 사용해 Micro Service Server를 구축했어요.
 
 #### DB
 
 <p>
-  <img src="https://user-images.githubusercontent.com/52682603/138834274-af159b46-dff3-4131-be66-9a6900fb7db9.png" alt="mysql" width=15%>
-  <img src="https://user-images.githubusercontent.com/52682603/138834254-91db1f7e-9750-49b8-8c47-ce54d96cc66c.png" alt="elastic_search" width=15%>
+  <img src="https://github.com/134talk/backend_MSA/assets/67637716/396448d6-784b-429e-9a99-0ac84939cf4f" alt="mysql" width=15%>
+  <img src="https://github.com/134talk/backend_MSA/assets/67637716/8978f2a9-f93d-47a9-a769-439fa376d7f2" alt="dynamoDB" width=15%>
+  <img src="https://github.com/134talk/backend_MSA/assets/67637716/7c1bb43e-efaf-4073-ac08-58025db84ecf" alt="elastiCache" width=15%>
 </p>
 
-- 데이터 베이스는 **MySQL**을 사용해요.
-- 등등
+- **AWS RDS(Mysql)** 를 Chat-Service와 User-Service에 사용했어요.
+- **AWS DynamoDB** 를 통계 서버인 Statistics-Service에 사용했어요.
+- **AWS ElastiCache** 를 In-Memory-Database로 활용하여 성능 최적화를 하였어요.
 
-#### Network
+#### Call
 
 <p>
-  <img src="https://user-images.githubusercontent.com/52682603/138834268-8c9c8420-d854-4b50-ad43-5092243c3bad.png" alt="aws_cloud_front" width=15%>
-  <img src="https://user-images.githubusercontent.com/52682603/138835931-103681d7-a630-45b0-8103-e5f56ef15d9e.png" alt="nginx" width=15%>
+  <img src="https://github.com/134talk/backend_MSA/assets/67637716/d6323813-db4e-4160-a5c6-0a5641e3edee" alt="kafka" width=15%>
+  <img src="https://github.com/134talk/backend_MSA/assets/67637716/1b2a4b56-668a-45dc-88cf-7f23157f11dc" alt="openFeign" width=15%>
 </p>
 
-- **Nginx** 를 리버스 프록시와 로드 밸런서로 활용하고 있어요.
-- 등등
+- **Kafka** Message Queue를 사용해 Non-Blocking으로 이벤트를 안전하게 전달했어요.
+- **Open Feign**을 사용해 Remote REST API CALL을 했어요.
+
+
+#### CI/CD
+
+<p>
+  <img src="https://user-images.githubusercontent.com/52682603/138834229-e8a9dcb0-bdb8-4aec-9a3e-be1f9ff44149.png" alt="github_actions" width=15%>
+</p>
+
+- **Github Actions** 로 지속적 배포를 진행해요. 
+
+
+## 🎫 ERD
+#### User Service
+AWS RDS(MySql)  
+<p>
+  <img src="https://github.com/134talk/backend_MSA/assets/67637716/9bff1ad5-32df-41c3-8a34-95bbcf0e068a" alt="github_actions" width=70%>
+</p>
+
+#### Chat Service
+AWS RDS(MySql)  
+<p>
+  <img src="https://github.com/134talk/backend_MSA/assets/67637716/f73b717b-f116-4568-9d2b-fd0f80a9a041" alt="github_actions" width=70%>
+</p>
+
+#### Statistics Service
+AWS DynamoDB  
+<p>
+  <img src="https://github.com/134talk/backend_MSA/assets/67637716/b0585e86-96dc-406e-b255-4005aa8a127f" alt="github_actions" width=70%>
+</p>
+
 
 
 ## 🌈 Members
