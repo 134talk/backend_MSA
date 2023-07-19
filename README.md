@@ -7,7 +7,7 @@
 ## 🍻 Intro
 
 <p align="center">
-  <img width="640" alt="image" src="https://github.com/134talk/backend_MSA/assets/107406265/2e53f26d-31d2-41e3-b4f1-5ce375d71c14">
+  <img width="640" alt="image" src=>
 </p>
 <p align="center">
   <img src="https://img.shields.io/badge/react-v17.0.2-9cf?logo=react" alt="react" />
@@ -15,7 +15,8 @@
   <img src="https://img.shields.io/badge/typescript-v4.3.5-blue?logo=typescript" alt="typescript"/>
   <img src="https://img.shields.io/badge/mysql-v8.0.26-blue?logo=mysql" alt="mysql"/>
 </p>
-</br>
+
+
 100가지 인생의 주요한 질문들을 듣고,\
 너와 나를 꺼내보는 낯선 대화를 나누는 **talk134** 대화 플랫폼입니다.
 
@@ -25,16 +26,7 @@
 바로, **talk134**
 </br>
 
-## 🚀 Demo (안해도 됨)
-
-
-## 👑 핵심 기술들 적어주기
-
-<p algin="center">
-	<img src="https://foo.bar/foo.png" alt="image" width=50%>  
-</p>
-
-설명 적어주기
+## 🚀 Demo
 
 ## ⚡️ Skills
 
@@ -46,14 +38,11 @@
   <img src="https://user-images.githubusercontent.com/52682603/138834253-9bcd8b12-241f-41b2-85c4-d723a16bdb58.png" alt="spring_boot" width=15%>
   <img src="https://user-images.githubusercontent.com/52682603/138834267-c86e4b93-d826-4fd4-bcc8-1294f615a82d.png" alt="hybernate" width=15%>
   <img src="https://user-images.githubusercontent.com/52682603/138834280-73acd37b-97ef-4136-b58e-6138eb4fcc46.png" alt="query_dsl" width=15%>
-  <img src="https://user-images.githubusercontent.com/52682603/138834265-5e9d309b-6b78-4c5e-adf3-981f705b7042.png" alt="flyway" width=15%>
-  <img src="https://user-images.githubusercontent.com/52682603/138834240-a4d7218f-db96-4c51-83f5-9b80f6d38758.png" alt="spring_rest_docs" width=15%>
 </p>
 
 - **Springboot** 로 웹 어플리케이션 서버를 구축했어요.
 - **Spring Data JPA(Hibernate)** 로 객체 지향 데이터 로직을 작성했어요.
 - **QueryDSL** 로 컴파일 시점에 SQL 오류를 감지해요. 더 가독성 높은 코드를 작성할 수 있어요.
-- 등등
 
 ---
 
@@ -135,3 +124,9 @@ AWS DynamoDB
 
 ## 🌈 Members
 
+## 🌈 Members
+
+|            [이담](https://github.com/damiiya)             |            [해솔](https://github.com/sol-pine)             |             [민석홍](https://github.com/shmin7777)             |             [김아리](https://github.com/lielocks)             |              [김용현](https://github.com/facewise)               |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| <img src="https://avatars.githubusercontent.com/u/101298873?v=4" width=200px alt="_"/> | <img src="https://avatars.githubusercontent.com/u/105091138?v=4" width=200px alt="_"/> | <img src="https://avatars.githubusercontent.com/u/67637716?v=4" width=200px alt="_"/> | <img src="https://avatars.githubusercontent.com/u/107406265?v=4" width=200px alt="_"> | <img src="https://avatars.githubusercontent.com/u/62998666?v=4" width=200px alt="_"> |
+|                         프론트엔드                         |                         프론트엔드                         |                           백엔드                           |                           백엔드                           |                           백엔드                           |
