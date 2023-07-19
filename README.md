@@ -1,7 +1,6 @@
-# 제목
+# 원하는 일을 하며 삶을 사랑하자! 대화 및 피드백 통계 서비스 talk134
 
-- 설명1
-- 설명2
+- [134.works](https://134.works/) 에서 이용하실 수 있어요.
 
 ---
 
@@ -12,13 +11,19 @@
 </p>
 <p align="center">
   <img src="https://img.shields.io/badge/react-v17.0.2-9cf?logo=react" alt="react" />
-  <img src="https://img.shields.io/badge/spring_boot-v2.5.2-green?logo=springboot"  alt="spring-boot" />
+  <img src="https://img.shields.io/badge/spring_boot-v2.7.12-green?logo=springboot"  alt="spring-boot" />
   <img src="https://img.shields.io/badge/typescript-v4.3.5-blue?logo=typescript" alt="typescript"/>
   <img src="https://img.shields.io/badge/mysql-v8.0.26-blue?logo=mysql" alt="mysql"/>
 </p>
 
 
-** 간단한 인트로 설명 글
+100가지 인생의 주요한 질문들을 듣고,\
+너와 나를 꺼내보는 낯선 대화를 나누는 **talk134** 대화 플랫폼입니다.
+
+인생 질문에 답하면서 담고만 있었던 고민들을 정리하고 싶을 땐?\
+상대의 이야기로부터 삶의 위안과 영감을 얻고 싶을 땐?
+
+바로, **talk134**
 </br>
 
 ## 🚀 Demo (안해도 됨)
