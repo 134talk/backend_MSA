@@ -40,9 +40,12 @@
   <img src="https://user-images.githubusercontent.com/52682603/138834280-73acd37b-97ef-4136-b58e-6138eb4fcc46.png" alt="query_dsl" width=15%>
 </p>
 
-- **Springboot** 로 웹 어플리케이션 서버를 구축했어요.
+- **Springboot** 로 자동화, 경량화된 웹 애플리케이션을 제작했어요.
 - **Spring Data JPA(Hibernate)** 로 객체 지향 데이터 로직을 작성했어요.
-- **QueryDSL** 로 컴파일 시점에 SQL 오류를 감지해요. 더 가독성 높은 코드를 작성할 수 있어요.
+- **QueryDSL** 로 컴파일 시점에 SQL 오류를 감지하고 가독성 높은 코드를 작성했어요.
+- **Redis**를 구현한 **ElastiCache** 로 Refresh Token 같이 수명을 관리해야 하는 데이터를 처리하고 DB 대비 더 빠른 RTT로 성능을 개선했어요.
+- NoSQL 기반의 **DynamoDB** 로 복잡하고 다양한 구조의 통계 데이터를 처리했어요.
+- **Spring Cloud Gateway**, **Netflix Eureka**로 MSA 환경에서 서비스 간의 호출 , 인증 절차를 관리했어요.
 
 ---
 
