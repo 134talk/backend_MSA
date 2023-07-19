@@ -10,9 +10,9 @@
   <img width="640" alt="image" src="https://github.com/134talk/backend_MSA/assets/107406265/2e53f26d-31d2-41e3-b4f1-5ce375d71c14">
 </p>
 <p align="center">
-  <img src="https://img.shields.io/badge/react-v17.0.2-9cf?logo=react" alt="react" />
+  <img src="https://img.shields.io/badge/react-v18.2.0-9cf?logo=react" alt="react" />
   <img src="https://img.shields.io/badge/spring_boot-v2.7.12-green?logo=springboot"  alt="spring-boot" />
-  <img src="https://img.shields.io/badge/typescript-v4.3.5-blue?logo=typescript" alt="typescript"/>
+  <img src="https://img.shields.io/badge/typescript-v4.9.5-blue?logo=typescript" alt="typescript"/>
   <img src="https://img.shields.io/badge/mysql-v8.0.32-blue?logo=mysql" alt="mysql"/>
 </p>
 
