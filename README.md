@@ -35,9 +35,11 @@
 ### Back-end
 
 <p>
-  <img src="https://user-images.githubusercontent.com/52682603/138834253-9bcd8b12-241f-41b2-85c4-d723a16bdb58.png" alt="spring_boot" width=15%>
-  <img src="https://user-images.githubusercontent.com/52682603/138834267-c86e4b93-d826-4fd4-bcc8-1294f615a82d.png" alt="hybernate" width=15%>
-  <img src="https://user-images.githubusercontent.com/52682603/138834280-73acd37b-97ef-4136-b58e-6138eb4fcc46.png" alt="query_dsl" width=15%>
+  <img src="https://user-images.githubusercontent.com/52682603/138834253-9bcd8b12-241f-41b2-85c4-d723a16bdb58.png" alt="spring_boot" width=12%>
+  <img src="https://user-images.githubusercontent.com/52682603/138834267-c86e4b93-d826-4fd4-bcc8-1294f615a82d.png" alt="hybernate" width=12%>
+  <img src="https://user-images.githubusercontent.com/52682603/138834280-73acd37b-97ef-4136-b58e-6138eb4fcc46.png" alt="query_dsl" width=12%>
+  <img src="https://avatars.githubusercontent.com/u/1529926?s=200&v=4" alt="query_dsl" width=12%>
+  <img src="https://avatars.githubusercontent.com/u/7815877?s=200&v=4" alt="query_dsl" width=12%>
 </p>
 
 - **Springboot** 로 자동화, 경량화된 웹 애플리케이션을 제작했어요.
