@@ -28,23 +28,19 @@
 ## 🚀 Demo
 |                   소셜 로그인                   |                   대화방 생성                    |                         대화방 참여                          |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="https://github.com/134talk/backend_MSA/assets/107406265/0d66e01b-61f7-424a-abe8-d4c3b38c67f2.gif" alt="소셜_로그인" width=80%> | <img src="https://github.com/134talk/backend_MSA/assets/107406265/54580e4f-6445-4205-adc3-2495760eb9d8.gif" alt="대화방_생성" width=80%> | <img src="https://.gif" alt="일괄_평가" width=80%> |
+| <img src="https://github.com/134talk/backend_MSA/assets/107406265/0d66e01b-61f7-424a-abe8-d4c3b38c67f2.gif" alt="소셜_로그인" width=80%> | <img src="https://github.com/134talk/backend_MSA/assets/107406265/54580e4f-6445-4205-adc3-2495760eb9d8.gif" alt="대화방_생성" width=80%> | <img src="https://github.com/134talk/backend_MSA/assets/107406265/26e43059-7311-4512-ba91-9571ac665242.gif" alt="대화방_참여" width=80%> |
 
-|                   자기소개 마무리                   |                   키워드 선택                    |                         질문 순서 선택                          |
+|                   자기소개 마무리                   |                   키워드 및 질문 순서 선택                    |                         대화 진행 및 이모티콘 보내기                          |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="" alt="유저_맞춤_술_추천" width=80%> | <img src="" alt="베스트_추천" width=80%> | <img src="" alt="일괄_평가" width=80%> |
+| <img src="https://github.com/134talk/backend_MSA/assets/107406265/7415479c-eea6-4d45-ad51-9dd773151abd.gif" alt="자기소개_마무리" width=80%> | <img src="https://github.com/134talk/backend_MSA/assets/107406265/3aa46c96-0938-42e0-817e-e5c39e537479.gif" alt="키워드_및_질문_순서_선택" width=80%> | <img src="https://github.com/134talk/backend_MSA/assets/107406265/fdb1acc5-1f51-462a-ab2a-6278d5d59b40.gif" alt="대화_진행_및_이모티콘_보내기" width=80%> |
 
-|                   대화 중 이모티콘 보내기                   |                   대화 마감 알림                    |                         피드백 필수형 등록                          |
+|                  피드백 등록                   |                참가자 성향 리포트 상세조회                       |                     대화 기록 리포트 상세 조회                         |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="" alt="유저_맞춤_술_추천" width=80%> | <img src="" alt="베스트_추천" width=80%> | <img src="h460-0950-4915-8cc0-a695057a822c.gif" alt="일괄_평가" width=80%> |
+| <img src="https://github.com/134talk/backend_MSA/assets/107406265/54580ca0-a200-4165-95c8-93e5127f248a.gif" alt="피드백_등록" width=80%> | <img src="https://github.com/134talk/backend_MSA/assets/107406265/8f199ed1-9f3d-4781-8f02-fd1d288274fd.gif" alt="참가자_성향_리포트_상세조회" width=80%> | <img src="https://github.com/134talk/backend_MSA/assets/107406265/7da10795-5830-4d7e-a0e2-491573a86155.gif" alt="대화_기록_리포트_상세_조회" width=80%> |
 
-|                   피드백 선택형 등록                   |                   참가자 성향 리포트 상세조회                    |                         대화 기록 리포트 상세 조회                          |
+|                   대화 후 참가자 상태 피드백 리포트                   |                   팀원별 종합 리포트                  |            마이 페이지                                |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="https://user-images.githubusercontent.com/=/=" alt="유저_맞춤_술_추천" width=80%> | <img src="https" alt="베스트_추천" width=80%> | <img src="https://user-images.githubusercontent" alt="일괄_평가" width=80%> |
-
-|                   대화 후 참가자 상태 피드백 리포트                   |                  침원별 종합 리포트                    |                         마이 페이지                          |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="3.gif" alt="유저_맞춤_술_추천" width=80%> | <img src="httpf" alt="베스트_추천" width=80%> | <img src="https://user-images.githubuserconten" alt="일괄_평가" width=80%> |
+| <img src="https://github.com/134talk/backend_MSA/assets/107406265/8c5af46b-703f-42cb-8520-cd2abab68ec6.gif" alt="대화_후_참가자_상태_피드백_리포트" width=80%> | <img src="https://github.com/134talk/backend_MSA/assets/107406265/83bdce15-7663-4c8e-a290-ad5e78b95593.gif" alt="팀원별_종합_리포트" width=80%> | <img src="https://github.com/134talk/backend_MSA/assets/107406265/4173ad4e-5608-473f-9128-7d6403c95e5b.gif" alt="마이_페이지" width=80%> |
 
 ## ⚡️ Skills
 
