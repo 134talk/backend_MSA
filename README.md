@@ -62,6 +62,7 @@
 - **Redis**를 구현한 **ElastiCache** 로 Refresh Token 같이 수명을 관리해야 하는 데이터를 처리하고 DB 대비 더 빠른 RTT로 성능을 개선했어요.
 - NoSQL 기반의 **DynamoDB** 로 복잡하고 다양한 구조의 통계 데이터를 처리했어요.
 - **Spring Cloud Gateway**, **Netflix Eureka**로 MSA 환경에서 서비스 간의 호출 , 인증 절차를 관리했어요.
+- **Websocket Stomp**로 실시간 데이터 통신과 데이터 교환을 구현하였어요.
 
 ---
 
